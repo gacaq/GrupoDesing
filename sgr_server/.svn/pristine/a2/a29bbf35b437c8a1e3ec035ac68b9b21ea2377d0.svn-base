@@ -1,0 +1,32 @@
+<h1>Recetas</h1>
+
+<table class="table span8 striped">
+  <thead>
+    <tr>
+    <th>Nombre</th>
+    <th>Producto</th>
+    <th>Tipo</th>
+    </tr> 
+  </thead>
+ 
+  <tbody>
+      <% @recipes.each do |recipe| %>
+          <tr>
+            <td><%= recipe.name %></td>
+            <td><%= recipe.product %></td> 
+
+           <%if recipe.device%>
+              <td>Set Point</td>
+           <% else %> 
+              <td>No Set Point</td>
+       <% end %>      
+          
+          <td><%= link_to 'Ver', recipe, class: "btn btn-info" %></td>
+          <td><%= link_to 'Editar', edit_recipe_path(recipe), class: "btn btn-success" %></td>
+          <td><%= link_to 'Eliminar', recipe , class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+

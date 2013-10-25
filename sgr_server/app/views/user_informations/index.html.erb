@@ -1,0 +1,18 @@
+<h2 class="glyphicons user"><i></i>Usuarios</h2>
+  <div class="users index-group">
+  <% @enterprises.each do |enterprise| %>
+    <div class="thumbnail">
+      <div class="glyphicons user"><i></i>
+      </div>
+
+      <div class="caption">
+        <h3><%= enterprise.name %></h3>
+      
+        <p><%= pluralize(enterprise.users.size, "usuario") %></p>
+
+        <p><%= link_to 'Ver', user_information_path(enterprise), class: "btn btn-info" %></p>
+      </div>
+    </div>
+  <% end %> 
+
+</div>

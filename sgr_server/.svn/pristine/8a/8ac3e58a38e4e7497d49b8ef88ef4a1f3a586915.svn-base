@@ -1,0 +1,7 @@
+class Work < ActiveRecord::Base
+  attr_accessible :device_id, :name, :variable_id, :variable_value
+  belongs_to :variable
+  belongs_to :device
+
+  scope :temperatura, where(:variable_id => 1) 
+end

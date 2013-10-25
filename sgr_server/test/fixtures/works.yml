@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  variable_value: 1.5
+  device_id: 1
+  variable_id: 1
+
+two:
+  name: MyString
+  variable_value: 1.5
+  device_id: 1
+  variable_id: 1

@@ -1,0 +1,8 @@
+class Device < ActiveRecord::Base
+  attr_accessible :name, :enterprise_id, :device_category_id
+  has_many :works  
+  belongs_to :enterprise 
+  belongs_to :configuration_set
+  belongs_to :device_category
+  default_scope order: 'devices.created_at ASC'
+end

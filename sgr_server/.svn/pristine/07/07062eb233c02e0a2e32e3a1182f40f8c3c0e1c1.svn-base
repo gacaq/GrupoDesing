@@ -1,0 +1,67 @@
+<% if user_signed_in? %>
+<ul>
+	<li class="glyphicons home <%= 'active' if controller.controller_name  == 'informations' %>">
+		<%= link_to raw("<i></i><span>Inicio</span>"), root_path %>
+	</li>
+	<% if signed_in? and (current_user.role_id == 1) %>
+		<li class="glyphicons building <%= 'active' if controller.controller_name  == 'enterprises' %>">
+			<%= link_to raw("<i></i><span>Empresas</span>"), enterprises_path %>
+		</li>
+  <% end %>
+	<li class="glyphicons cogwheels <%= 'active' if controller.controller_name  == 'configuration_sets' %>">
+		<%= link_to raw("<i></i><span>Control</span>"), configuration_sets_path %>
+	</li>
+	<li class="glyphicons stats <%= 'active' if controller.controller_name  == '' %>">
+		<%= link_to raw("<i></i><span>Historicos</span>"), works_path %>
+	</li>
+	<li class="glyphicons user <%= 'active' if controller.controller_name  == 'user_informations' %>">
+		<%= link_to raw("<i></i><span>Usuarios</span>"), user_informations_path %>
+	</li>
+</ul>
+<% else %>
+  <div class="positionWrapper loginWrapper" >
+    <h1>Sistema de Gerenciamiento Remoto</h1>
+    <div class="intro">
+      <div class="box-1">
+        <ul>
+          <li class="glyphicons cogwheel"><i></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dolor magna, consequat id condimentum vitae, ultrices sit amet dui. Sed pulvinar arcu tincidunt erat sodales imperdiet. Vestibulum ut pulvinar purus. Nam dignissim neque at nisi rutrum quis eleifend felis ultricies.</li>
+          <li class="glyphicons cloud-upload"><i></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dolor magna, consequat id condimentum vitae, ultrices sit amet dui. Sed pulvinar arcu tincidunt erat sodales imperdiet. Vestibulum ut pulvinar purus. Nam dignissim neque at nisi rutrum quis eleifend felis ultricies.</li>
+          <li class="glyphicons cogwheels"><i></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dolor magna, consequat id condimentum vitae, ultrices sit amet dui. Sed pulvinar arcu tincidunt erat sodales imperdiet. Vestibulum ut pulvinar purus. Nam dignissim neque at nisi rutrum quis eleifend felis ultricies.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box-1 loginbox">
+      <div class="inner">
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'fts'}) do |f| %>
+          <fieldset>
+            <legend>
+              Área Restringida
+            </legend>
+            <hr  class="separator bottom">
+            <div class="input-prepend input-full">
+              <span class="add-on glyphicons user">
+                <i>
+                </i>
+              </span>
+              <%= f.email_field :email, :placeholder=>"Usuario" %>
+            </div>
+            <div class="input-prepend input-full">
+              <span class="add-on glyphicons lock">
+                <i>
+                </i>
+              </span>
+              <%= f.password_field :password, :placeholder=>"Contraseña" %>
+            </div>
+            <%= link_to raw("<i></i>¿Olvidó su Contraseña?"), new_password_path(resource_name), :class=>'glyphicons circle_question_mark forgot' %>
+            <hr class="separator bottom">
+            <button class="btn btn-icon btn-block glyphicons right flash btn-primary" type="submit">
+              Ingresar
+              <i>
+              </i>
+            </button>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Rol</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @enterprise.users.each do |user| %>
+    <tbody>
+      <tr>
+      	
+        	<td><%= "#{user.nombre.titleize} #{user.apellido.titleize}"%></td>
+        	<td><%= user.cedula%></td>
+        	<td><%= user.role.name%></td>
+        	<td><%= user.email%></td>
+        	<td><%= link_to 'Editar', edit_user_information_path(:id => user.id, :enterprise_id => @enterprise.id ), class: 'btn btn-success' %></td> 
+        	<td><%= link_to 'Eliminar', user_information_path(:id => user.id) , class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
+      </tr>
+    </tbody>
+     <% end %>
+  </table>
+
+<p><%= link_to 'Agregar Usuario', new_user_information_path, class: "btn btn-info" %></p>
+
+<%= link_to 'Atrás', user_informations_path, class: 'btn btn-inverse' %>
+
+
+	
+
+

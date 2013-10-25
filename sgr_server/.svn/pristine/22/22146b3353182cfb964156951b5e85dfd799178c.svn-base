@@ -1,0 +1,10 @@
+<div class="widget widget-2">
+  <div class="widget-head">
+    <h4 class="heading glyphicons edit"><i></i>Nuevo Usuario</h4>
+  </div>
+  <div class="widget-body">
+  	<%= render 'prueba' %>
+  </div>
+</div>
+
+

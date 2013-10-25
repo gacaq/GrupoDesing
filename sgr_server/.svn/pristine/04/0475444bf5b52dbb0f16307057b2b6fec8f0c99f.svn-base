@@ -1,0 +1,60 @@
+<div class= 'span8 offset4'>
+  <%= form_for(@permission) do |f| %>
+  <% if @permission.errors.any? %>  
+    <div id="error_explanation">
+      <h2><%= pluralize(@permission.errors.count, "error") %> prohibited this permission from being saved:</h2>
+
+      <ul>
+      <% @permission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :Empresa %><br />
+    <%= collection_select(:permission_rol_user, :enterprise_id, Enterprise.all, :id, :name, :prompt => t(:Seleccionar)) %><br />
+    <%= f.text_field :permission_role_user_enterprise_id, :value => ( ) %> 
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= collection_select(:permission_role_user, :nombre, User.all, :id, :nombre, :prompt => t(:Seleccionar)) %><br />
+    <%= f.text_field :permission_role_user_nombre, :value => ( ) %> 
+ 
+  </div>
+
+  <div class="field">
+    <%= f.label :Apelllido %><br />
+    <%= collection_select(:permission_role_user, :apellido, User.all, :id, :apellido, :prompt => t(:Seleccionar)) %><br />
+    <%= f.text_field :permission_role_user_apellido, :value => ( ) %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :cedula %><br />
+    <%= collection_select(:permission_role_user, :cedula, User.all, :id, :cedula, :prompt => t(:Seleccionar)) %><br />
+    <%= f.text_field :permission_role_user_cedula, :value => ( ) %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= collection_select(:permission_role_user, :email, User.all, :id, :email, :prompt => t(:Seleccionar)) %>
+    <br />
+    <%= f.text_field :permission_role_user_email, :value => ( ) %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :Rol %><br />
+    <%= collection_select(:permission_role_user, :role, Role.all, :id, :role, :prompt => t(:Seleccionar)) %>
+    <br />
+    <%= f.text_field :permission_role_role, :value => ( ) %> 
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div> 
+ 

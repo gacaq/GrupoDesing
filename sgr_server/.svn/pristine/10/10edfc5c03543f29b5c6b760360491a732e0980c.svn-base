@@ -1,0 +1,11 @@
+class Recipe < ActiveRecord::Base
+  attr_accessible :name, :product , :device, :variable_ranges_attributes
+  belongs_to :user
+  belongs_to :user_information
+  has_many :alarms	
+  has_one :device
+  has_many :variable_ranges     
+
+	accepts_nested_attributes_for :variable_ranges, :allow_destroy => true
+end
+ 

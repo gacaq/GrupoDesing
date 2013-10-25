@@ -1,0 +1,33 @@
+<h1>Usuarios</h1>
+
+<table class="table span8 striped">
+ 
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Nombre</th> 
+      <th>Apellido</th>
+      <th>Rol</th> 
+    </tr>
+  </thead> 
+ 
+  <tbody> 
+ 
+    <% @permissions.each do |permission| %>  
+      
+      <tr>
+        <td><%= permission.role.user.enterprise.name %></td>
+        <td><%= permission.role.user.nombre %></td>
+        <td><%= permission.role.user.apellido %></td>
+        <td><%= permission.role.role %></td>
+        
+
+        <td><%= link_to 'Ver', permission, class: "btn btn-info" %></td>
+        <td><%= link_to 'Editar', edit_permission_path(permission), class: "btn btn-success" %></td>
+        <td><%= link_to 'Eliminar', permission, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table> 
+

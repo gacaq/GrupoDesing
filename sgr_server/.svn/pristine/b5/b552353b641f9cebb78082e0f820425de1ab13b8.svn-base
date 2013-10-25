@@ -1,0 +1,59 @@
+<form>
+
+  <h4>Rangos de Funcionamiento (Set-Points)</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Actual</th>
+        <th>Límites</th>
+        <th>Alarmas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Temperatura</td>
+        <td>7º</td>
+        <td>5º ~ 15º</td>
+        <td class="alarms"><a href="#" class="btn btn-default btn-icon glyphicons alarm" ><i></i> 7º</a> <a href="#" class="btn btn-default btn-icon glyphicons alarm" ><i></i>13º</a></td>
+      </tr>
+      <tr>
+        <td>Humedad</td>
+        <td>80º</td>
+        <td>60 ~ 90</td>
+        <td class="alarms"><a href="#" class="btn btn-default btn-icon glyphicons alarm" ><i></i>65</a> <a href="#" class="btn btn-default btn-icon glyphicons alarm" ><i></i>85</a></td>
+      </tr>
+      <tr>
+        <td>Presión</td>
+        <td>105kPa</td>
+        <td>100kPa ~ 110kPa</td>
+        <td class="alarms"><a href="#" class="btn btn-default btn-icon glyphicons alarm" ><i></i>101kPa</a> <a href="#" class="btn btn-default btn-icon glyphicons alarm" ><i></i>108kPa</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <fieldset>
+		<legend>Alarmas</legend>
+		<div class="tabbable">
+		  <ul class="nav nav-tabs" id="deviceAlarms">
+	      <li class="active"><a href="#alarma1" data-toggle="tab">Alarma Principal</a></li>
+	      <li><a href="#alarma2" data-toggle="tab">Segunda Alarma</a></li>
+		  </ul>
+		   
+		  <div class="tab-content">
+	      <div class="tab-pane active" id="alarma1">
+
+	      </div>
+	      <div class="tab-pane" id="alarma2">
+
+	      </div>
+
+		  </div>
+		</div>
+		
+
+  </fieldset> -->
+
+
+
+</form>

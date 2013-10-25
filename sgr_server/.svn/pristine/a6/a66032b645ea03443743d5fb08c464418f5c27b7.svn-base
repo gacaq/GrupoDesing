@@ -1,0 +1,46 @@
+<%= form_for(configuration_set) do |f| %>
+	<% if configuration_set.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(configuration_set.errors.count, "error") %> prohibited this configuration_set from being saved:</h2>
+
+			<ul>
+			<% configuration_set.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+		<%= f.label :name, "Nombre" %><br />
+		<%= f.text_field :name %>
+		<%= f.submit "Guardar set" %>
+		<%= f.submit "Aplicar set", remote: true %>
+
+		<%= hidden_field_tag :device_id, device.id %>
+		
+		<fieldset>
+			<legend>Rangos de Funcionamiento (Set-Points)</legend>
+
+
+		</fieldset>
+
+		<fieldset>
+			
+			<legend>Alarmas</legend>
+			<div class="tabbable" id="configuration_setAlarms" data-quantity="<%= configuration_set.recipes.size.to_i %>">
+				<ul class="nav nav-tabs addControls" id="deviceConfigSets">
+					<% configuration_set.recipes.each_with_index do |r, i| %>
+						<li><%= link_to raw("<span class='glyphicons alarm'><i></i>#{i+1}</span>"), "##{i+1}", :"data-toggle" => "tab" %></li>
+					<% end %>
+					<li><%= link_to_add_fields "Nueva alarma", f, :recipes %></li>
+				</ul> 
+				<div class="tab-content">
+					<%= f.fields_for :recipes do |r| %>
+						<%= render "recipe_fields", f: r %>
+					<% end %>
+				</div>
+			</div>
+			
+		</fieldset>
+
+<% end %>

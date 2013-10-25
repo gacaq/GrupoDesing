@@ -1,0 +1,33 @@
+<div class="navbar main">
+  <div class="innerpx">
+    <button type="button" class="btn btn-navbar hidden-desktop hidden-tablet">
+      <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+    </button>
+    <div class="positionWrapper">
+      <span class="line"></span>
+                <div class="logo">
+        
+        <%= image_tag 'logo.png' %>
+      </div>
+      <%= setpointNotifications %>
+      <%= alarmNotifications %>
+
+      <% if user_signed_in? %>
+
+          <div class="profile">
+						<img alt="Profile" class="avatar" src="">
+						<span class="info hidden-phone">
+							<strong>Santiago Restrepo</strong>
+							<em>Activo Multimedia</em>
+						</span>
+					</div>
+        <ul class="topnav hidden-phone">
+          <li>
+            <%= link_to raw("<i></i><span>Salir</span>"), destroy_user_session_path, :method => :delete, :class =>"logout glyphicons lock" %>
+          </li>
+        </ul>
+      <% end %>
+
+    </div>
+  </div>
+</div>

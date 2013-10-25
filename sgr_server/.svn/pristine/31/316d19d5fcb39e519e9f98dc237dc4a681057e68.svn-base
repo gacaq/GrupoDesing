@@ -1,0 +1,19 @@
+<div class= 'span8 offset4'>
+  <%= form_tag(user_information_path(@usuario.id), method: :put) do %>
+
+      <div class="field"> 
+        <%= label_tag :enterprise_id, "Empresa" %><br />
+        <%= collection_select(:user, :enterprise_id, Enterprise.all, :id, :name) %> 
+      </div>
+
+      <div class="field">
+        <%= label_tag :roles_id, "Rol" %><br />
+        <%= collection_select(:user, :role_id, Role.all, :id, :name) %> 
+      </div>
+
+      <div class="actions">
+    	 <%= submit_tag  "Guardar cambios"%>
+  	  </div>
+   <% end %>
+</div> 
+

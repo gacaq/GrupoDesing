@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div class= 'span8 offset4'>
+	<p>
+	  <b>Nombre:</b>
+	  <%= @variable.name %>
+
+	</p>
+	<p>
+	  <b>Tipo de Variable:</b>
+	  <% if @variable.variable_type %>
+	 	 variable de Proceso 
+	  <% else %>
+	   	 variable de Equipo 
+	  <% end %>
+	</p>
+
+	<p>
+	  <b>Descripción:</b>
+	  <%= @variable.description%>
+	</p>
+	<p> 
+   
+    <b>Valor:</b>
+
+	  <% @variable.works.each do |w|%>	  		
+	  			<%= w.variable_value%> 
+	  <%end%> 
+	  
+	</p>
+	 
+
+	<%= link_to 'Editar', edit_variable_path(@variable), class: 'btn btn-success' %> |
+	<%= link_to 'Atrás', variables_path, class: 'btn btn-inverse' %>
+
+
+</div>

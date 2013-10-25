@@ -1,0 +1,87 @@
+<h2 class="glyphicons building"><i></i>Empresa</h2>
+<div class="row-fluid">
+  <div class="span9">
+    <section class="enterpriseInfo">
+
+    <div class="widget widget-2">
+      <div class="widget-head">
+        <h4 class="heading glyphicons edit"><%= link_to raw("<i></i>"), edit_enterprise_path(@enterprise) %>Información de la Empresa</h4>
+      </div>
+      <div class="widget-body">
+        <div class="row-fluid">
+          <div class="span4">
+            <img src="http://placehold.it/350x200">
+            <!-- <%= image_tag @enterprise.logo_image %> -->
+          </div>
+          <div class="span8">
+            <h2><%= @enterprise.name.try(:titleize) %></h2>
+            <h4><%= @enterprise.enterprise_category.name %></h4>
+            <div class="info">
+              <b>Dirección:</b>
+              <%= @enterprise.address.try(:titleize) %>
+            </div>
+            <div class="info">
+              <b>Telefóno:</b>
+              <%= @enterprise.telephone %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+	<div class="tabbable">
+
+	  <ul class="nav nav-tabs" id="enterpriseWorks">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+        <li class="<%= 'active' if i == 0 %>"><a href="#<%= d.name.parameterize %>" data-toggle="tab"><span class="glyphicons cogwheel"><i></i><%= d.name.titleize %></span></a></li>
+	    <% end %>
+	    <li><%= link_to "+ agregar dispositivo", new_device_path(:enterprise_id => @enterprise.id), remote: true %>
+	  </ul>
+	   
+	  <div class="tab-content">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+	      <div class="tab-pane <%= "active" if i == 0%>" id="<%= d.name.parameterize %>">
+          <div class="tab-body">
+            <%= render "devices/show", device: d, enterprise: @enterprise %>
+            <%= render "recipes/show", device: d %>
+            <div class="form-actions">
+              <%= link_to 'Editar', edit_device_path(:id => d.id, :enterprise_id => @enterprise.id), class: 'btn btn-success', remote: true %>
+            </div>
+          </div>
+	      </div>
+	    <% end %>
+	  </div>
+	</div>
+  </div>
+  <div class="span3">
+    <% if @enterprise.users.principal_user %>
+      <div class="widget widget-2 primary widget-body-white">
+        <div class="widget-head"><h4 class="heading glyphicons user">Contacto Responsable</h4></div>
+        <div class="widget-body">
+          <p>
+            <%= "#{@enterprise.users.principal_user.nombre.titleize} #{@enterprise.users.principal_user.apellido.titleize}" %><br />
+            <%= "#{@enterprise.users.principal_user.email}" %><br />
+            <%= "#{@enterprise.users.principal_user.telephone}" %>
+          </p>
+        
+        </div>
+      </div>
+    <% end %>
+    <div class="widget widget-2 primary widget-body-white">
+      <div class="widget-head"><h4 class="heading glyphicons settings"><i></i>Administración</h4></div>
+      <div class="widget-body  list list-2">
+        <ul>
+          <li class="active"><%= link_to raw('<i></i>Editar'), edit_enterprise_path, class: "glyphicons pencil" %></li>
+          <li><%= link_to raw('<i></i>Borrar'), edit_enterprise_path, class: "glyphicons delete" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+ 

@@ -1,0 +1,18 @@
+  <div class="tabbable">
+
+    <ul class="nav nav-tabs" id="enterpriseWorks">
+      <% @devices.each_with_index do |d, i| %>
+        <li class="<%= 'active' if i == 0 %>"><a href="#<%= d.name.parameterize %>" data-toggle="tab"><%= d.name.titleize %></a></li>
+      <% end %>
+    </ul>
+     
+    <div class="tab-content">
+      <% @devices.each_with_index do |d, i| %>
+        <div class="tab-pane <%= "active" if i == 0 %>" id="<%= d.name.parameterize %>">
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+

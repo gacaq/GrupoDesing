@@ -1,0 +1,25 @@
+<h2 class="glyphicons user"><i></i>Usuarios</h2>
+  <div class="users index-group">
+  <% @usuario.each do |usu| %>
+    <div class="thumbnail">
+      <div class="glyphicons user"><i></i>
+      </div>
+
+      <div class="caption">
+        <h3><%= usu.enterprise.name %></h3>
+        <p><%= "#{usu.nombre.titleize} #{usu.apellido.titleize}"  %></p>
+        <p><%= usu.role.name %></p>
+        <p><%= link_to 'Ver', user_information_path(usu), class: "btn btn-info" %></p>
+      </div>
+    </div>
+  <% end %> 
+
+  <div class="thumbnail new">
+    <div class="glyphicons circle_plus"><i></i>
+    </div>
+    <div class="caption">
+      <h3>Nuevo Usuario</h3>
+      <p><%= link_to 'Agregar Usuario', new_user_information_path, class: "btn btn-info" %></p>
+    </div>
+  </div>
+</div>

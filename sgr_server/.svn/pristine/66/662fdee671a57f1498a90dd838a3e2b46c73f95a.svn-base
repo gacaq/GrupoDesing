@@ -1,0 +1,16 @@
+$(function(){
+  body = $('body');
+  index-group = $('.index-group')
+  if(index-group.length > 0){
+    index-items = index-group.find('.thumbnail');
+    index-items.find('.btn').hide();
+    index-items.hover(function(){
+      $(this).addClass('hover');
+    },function(){
+      $(this).removeClass('hover');
+    });
+    index-items.click(function(){
+      window.location = $(this).find('a').attr('href');
+    });
+  }
+})

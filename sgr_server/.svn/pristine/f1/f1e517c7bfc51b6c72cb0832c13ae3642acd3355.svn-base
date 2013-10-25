@@ -1,0 +1,6 @@
+<h1>Editar Usuario</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Ver', @usuario, class: 'btn btn-info' %> |
+<%= link_to 'Atrás', user_infomations_path, class: 'btn btn-inverse' %>

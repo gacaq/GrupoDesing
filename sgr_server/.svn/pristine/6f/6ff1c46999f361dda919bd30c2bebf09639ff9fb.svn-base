@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+<title>Sistema de Gerenciamiento Remoto</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>  
+</head>
+  <body>
+    <div class="container-fluid left-menu">
+      <%= render "layouts/header" %>
+    <div class="row-fluid rrow main">
+      <div role="main" class="span12 main col">
+        <div class="row-fluid rrow">
+          <div class="span2 col main-left hidden-phone menu-large" >
+            <div class="rrow scroll-y-left" >
+                <%= render "layouts/left_actions" %>
+
+              </div>
+          </div>
+          <div class="span10 col main-right">
+            <!--<div id="mainYScroller" class="rrow scroll-y" >-->
+              <div class="inner topRight" >
+                <%= yield %>
+              </div>
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+      
+
+      <%= render "layouts/modal" %>
+    </div>
+
+  </body>
+</html>

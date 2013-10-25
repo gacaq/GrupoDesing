@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class= 'span8 offset4'>
+
+	<p>
+	  <b>Empresa:</b>
+	  <%= @permission.role.user.enterprise.name %> 
+	</p>
+
+	<p>
+	  <b>Nombre:</b>
+	  <%= @permission.role.user.nombre %> 
+	</p>
+
+	<p>
+	  <b>Apellido:</b> 
+	  <%= @permission.role.user.apellido %>
+	</p> 
+
+	<p>
+	  <b>Cedula:</b> 
+	  <%= @permission.role.user.cedula %>
+	</p> 
+
+	<p>
+	  <b>Email:</b> 
+	  <%= @permission.role.user.email %>
+	</p> 
+
+	<p>
+	  <b>Rol:</b> 
+	  <%= @permission.role.role %>
+	</p> 
+	
+
+
+	<%= link_to 'Editar', edit_permission_path(@permission), class: 'btn btn-success' %> |
+	<%= link_to 'Atrás', permissions_path, class: 'btn btn-inverse' %>
+
+</div>

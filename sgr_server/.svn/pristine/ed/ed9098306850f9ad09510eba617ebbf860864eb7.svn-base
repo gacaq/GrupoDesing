@@ -1,0 +1,88 @@
+
+  <%= form_tag(user_informations_path, method: :post) do %>
+   <div class="row-fluid">
+    <div class="span6">
+
+      <div class="control-group">
+        <%= label_tag :nombre, "Nombre" %><br />
+        <div class="controls">
+         <%= text_field_tag "user[nombre]"%>
+        </div>
+       </div>
+
+
+      <div class="control-group">
+        <%= label_tag :apellido, "Apellido" %><br />
+        <div class="controls">
+          <%= text_field_tag "user[apellido]" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= label_tag :Cédula %><br />
+        <div class="controls">
+        <%= text_field_tag "user[cedula]" %>
+      </div>
+      </div>
+
+      <div class="control-group">
+        <%= label_tag :Teléfono %><br />
+        <div class="controls">
+          <%= text_field_tag "user[telephone]" %>
+        </div>
+      </div>
+
+
+      <div class="control-group">
+        <%= label_tag :Correo_Electrónico %><br /> 
+        <div class="controls">
+         <%= email_field_tag "user[email]" %>
+        </div>
+       </div>
+    </div>
+
+    <div class="span6">
+      <div class="control-group">
+        <%= label_tag :Contraseña %><br />
+        <div class="controls">
+        <%= password_field_tag "user[password]" %>
+      </div>
+       </div>
+
+      <div class="control-group">
+        <%= label_tag :Confirme_su_Contraseña%><br />
+        <div class="controls">
+        <%= password_field_tag "user[password_confirmation]" %>
+        </div>
+       </div>
+
+
+      <div class="control-group"> 
+        <%= label_tag :enterprise_id, "Empresa" %><br />
+        <div class="controls">
+        <%= collection_select(:user, :enterprise_id, Enterprise.all, :id, :name) %> 
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= label_tag :roles_id, "Rol" %><br />
+        <div class="controls">
+        <%= collection_select(:user, :role_id, Role.all, :id, :name) %> 
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+      
+      <div style="margin: 0;" class="form-actions">
+        <%= button_tag raw('<i></i>Guardar'), :class=>"btn btn-icon btn-primary glyphicons circle_ok" %>
+        <%= link_to raw('<i></i>Atrás'), user_informations_path, class: 'btn btn-icon btn-default glyphicons circle_remove' %>
+      </div>
+
+    <!--  <div class="actions">
+       <%= submit_tag  "Crear usuario"%>
+      </div> -->
+  <% end %>
+
+      

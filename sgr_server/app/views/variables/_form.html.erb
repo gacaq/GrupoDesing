@@ -1,0 +1,35 @@
+<div class= 'span8 offset4'>
+
+  <%= form_for(@variable) do |f| %>  
+    <% if @variable.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@variable.errors.count, "error") %> prohibited this variable from being saved:</h2>
+
+        <ul>
+        <% @variable.errors.full_messages.each do |msg| %>  
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :nombre %><br />
+      <%= f.text_field :name%>
+    </div>
+    
+    <div class="field">
+      <%= f.label :descrición %><br />
+      <%= f.text_field :description %>
+    </div> 
+ 
+    <div class="field"> 
+      <%= f.label :tipo_de_variable %><br/>  
+      <%= select(:variable, :variable_type, [['Variable de Proceso', 'TRUE'], ['Variable de Equipo', '']]) %>
+   </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

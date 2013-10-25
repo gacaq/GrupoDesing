@@ -1,0 +1,28 @@
+<h1>Alarmas</h1>
+
+<table class="table span8 striped">
+
+  <thead>
+    <tr> 
+    <th>Tipo de Alarma</th> 
+    <th>Descripción</th>
+    <th>Receta</th> 
+  </tr> 
+ 
+  </thead>  
+
+  <tbody>
+    <% @alarms.each do |alarm| %>
+      <tr>
+        <td><%= alarm.alarm_type %></td>
+        <td><%= alarm.description %></td> 
+        <td><%= alarm.recipe.name %></td>  
+        <td><%= link_to 'Ver', alarm , class: "btn btn-info"%></td>
+        <td><%= link_to 'Editar', edit_alarm_path(alarm), class: "btn btn-success" %></td>
+        <td><%= link_to 'Eliminar', alarm, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody> 
+
+</table>
+

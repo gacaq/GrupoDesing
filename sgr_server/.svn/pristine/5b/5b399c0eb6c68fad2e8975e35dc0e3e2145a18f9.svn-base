@@ -1,0 +1,8 @@
+class ConfigurationSet < ActiveRecord::Base
+  attr_accessible :name, :recipes_attributes, :user_id
+  has_many :recipes
+  belongs_to :user
+  has_many :devices
+
+  accepts_nested_attributes_for :recipes, :allow_destroy => true
+end

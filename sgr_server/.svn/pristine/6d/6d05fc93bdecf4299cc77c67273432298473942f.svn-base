@@ -1,0 +1,40 @@
+<h1>Variables</h1>
+
+<table class="table span8 striped">
+
+  <thead> 
+    <tr>
+      <th>Tipo variable</th>     
+      <th>Nombre variable</th>
+      <th>Descripción</th>   
+    </tr>  
+  </thead>  
+
+  <tbody>  
+       
+        <% @variables.each do |variable| %>   
+            <tr>
+              <% if variable.variable_type%>
+                    <td>VARIABLE DE PROCESO</td> 
+                    <td><%= variable.name %></td>    
+                    <td><%= variable.description %></td>
+                    <td><%= link_to 'Ver',variable, class: "btn btn-info" %></td>
+                    <td><%= link_to 'Editar', edit_variable_path(variable), class: "btn btn-success" %></td>
+                    <td><%= link_to 'Eliminar', variable, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <%else%>
+
+                    <td>VARIABLE DE EQUIPO</td> 
+                    <td><%= variable.name %></td> 
+                    <td><%= variable.description %></td>
+                    <td><%= link_to 'Ver', variable, class: "btn btn-info" %></td>
+                    <td><%= link_to 'Editar', edit_variable_path(variable), class: "btn btn-success" %></td>
+                    <td><%= link_to 'Eliminar', variable, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                
+              <% end %>
+            </tr> 
+        <% end %>   
+  </tbody>
+
+</table> 
+
+

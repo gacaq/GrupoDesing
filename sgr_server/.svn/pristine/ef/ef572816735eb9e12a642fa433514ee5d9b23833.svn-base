@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class= 'span8 offset4'>
+
+	<p>
+	  <b>Empresa:</b>
+	  <%= @usuario.enterprise.name %> 
+	</p>
+
+	<p>
+	  <b>Nombre:</b>
+	  <%= @usuario.nombre %> 
+	</p>
+
+	<p>
+	  <b>Apellido:</b> 
+	  <%= @usuario.apellido %>
+	</p> 
+
+	<p>
+	  <b>Cedula:</b> 
+	  <%= @usuario.cedula %>
+	</p> 
+
+	<p>
+	  <b>Email:</b> 
+	  <%= @usuario.email %>
+	</p> 
+
+	<p>
+	  <b>Rol:</b> 
+	  <%= @usuario.role.role %>
+	</p> 
+	
+
+
+	<%= link_to 'Editar', edit_user_information_path(@usuario), class: 'btn btn-success' %> |
+	<%= link_to 'Atrás', user_informations_path, class: 'btn btn-inverse' %>
+
+</div>

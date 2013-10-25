@@ -1,0 +1,46 @@
+<div class= 'span8 offset4'>
+  <%= form_for(@enterprise) do |f| %>
+  <% if @enterprise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enterprise.errors.count, "error") %> prohibited this enterprise from being saved:</h2>
+
+      <ul>
+      <% @enterprise.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :logo_image %><br />
+    <%= f.file_field :logo_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "Dirección" %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone, "Teléfono" %><br />
+    <%= f.text_field :telephone %>
+  </div>
+
+  <div class="field"> 
+    <%= f.label :enterprise_category_id, "Tipo de Empresa" %><br />
+    <%= collection_select(:enterprise, :enterprise_category_id, EnterpriseCategory.all, :id, :name, :prompt => t(:seleccione_tipo)) %> 
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+</div>

@@ -1,0 +1,8 @@
+module ApplicationHelper
+
+	def setpointNotifications
+		
+	end
+
+
+end

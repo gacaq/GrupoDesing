@@ -1,0 +1,24 @@
+<h1>Empresas</h1>
+
+<table class="table span8 striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dispositivos</th>
+    </tr>
+  </thead> 
+ 
+  <tbody>
+    <% @enterprises.each do |enterprise| %>
+      <tr>
+        <td><%= enterprise.name %></td>
+        <td><%= enterprise.devices.size %></td>
+        <td><%= link_to 'Ver', enterprise, class: "btn btn-info" %></td>
+        <td><%= link_to 'Editar', edit_enterprise_path(enterprise), class: "btn btn-success"%></td>
+        <td><%= link_to 'Eliminar', enterprise, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %> 
+  </tbody>   
+</table>
+
+

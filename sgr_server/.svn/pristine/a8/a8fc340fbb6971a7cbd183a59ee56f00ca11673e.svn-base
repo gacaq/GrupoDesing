@@ -1,0 +1,25 @@
+class CallbacksController < ApplicationController
+
+	
+	def submit_data     
+
+		params.delete('controller') 
+		params.delete('action')
+	    params.each do |p|
+	    	Work.create(:variable_id => p[0] , :variable_value => p[1])	     
+	    end
+	    @texto =params 
+
+	end
+   
+
+	def get_variables
+	    @variables = Variable.all 
+	    respond_to do |format|
+	       format.json { render json: @variables } 
+	    end
+	end 
+ 
+
+	
+end 

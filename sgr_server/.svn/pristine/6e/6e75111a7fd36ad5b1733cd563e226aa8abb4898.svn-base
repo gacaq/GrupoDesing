@@ -1,0 +1,18 @@
+<ul>
+	<li class="glyphicons home <%= 'active' if controller.controller_name  == '' %>">
+		<%= link_to raw("<i></i><span>Inicio</span>"), root_path %>
+	</li>
+
+	<li class="glyphicons building <%= 'active' if controller.controller_name  == 'enterprises' %>">
+		<%= link_to raw("<i></i><span>Empresas</span>"), enterprises_path %>
+	</li>
+	<li class="glyphicons clock <%= 'active' if controller.controller_name  == '' %>">
+		<%= link_to raw("<i></i><span>Historicos</span>"), works_path %>
+	</li>
+	<li class="glyphicons cogwheels <%= 'active' if controller.controller_name  == '' %>">
+		<%= link_to raw("<i></i><span>Control</span>"), '#' %>
+	</li>
+	<li class="glyphicons user <%= 'active' if controller.controller_name  == '' %>">
+		<%= link_to raw("<i></i><span>Usuarios</span>"), '#' %>
+	</li>
+</ul>

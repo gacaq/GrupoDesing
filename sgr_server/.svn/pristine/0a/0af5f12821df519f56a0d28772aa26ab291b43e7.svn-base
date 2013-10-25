@@ -1,0 +1,7 @@
+<b>Nombre del dispositivo:</b> <%= device.name.try(:titleize) %>
+<b>Tipo de sistema:</b> <%= device.device_category.name.try(:titleize) %>
+<b>Estado:</b> <%# device.status %>
+
+Variables Monitoreadas
+
+<%= link_to 'Editar', edit_device_path(:id => device.id, :enterprise_id => enterprise.id), class: 'btn btn-success' %>

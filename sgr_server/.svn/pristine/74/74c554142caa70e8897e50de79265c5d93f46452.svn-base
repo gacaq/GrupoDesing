@@ -1,0 +1,7 @@
+class Recipe < ActiveRecord::Base
+  attr_accessible :recipe_type, :variable_ranges_attributes
+  has_many :variable_ranges
+
+	accepts_nested_attributes_for :variable_ranges, :allow_destroy => true
+end
+ 

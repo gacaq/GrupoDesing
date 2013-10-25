@@ -1,0 +1,28 @@
+
+<h1>Históricos</h1>
+
+
+<div class="enterprises index-group">
+  <% @enterprises.each do |enterprise| %>
+    <div class="thumbnail">
+      <div class="glyphicons stats">
+        <i></i>
+      </div>
+      <div class="caption">
+        <h3><%= enterprise.name %></h3>
+        <p><%= pluralize(enterprise.devices.size, "dispositivo") %></p>
+        <p><%= link_to 'Ver', enterprise_historics_path(id: enterprise.id), class: "btn btn-info" %></p>
+      </div>
+    </div>
+  <% end %> 
+</div>
+
+
+
+
+
+
+
+
+
+

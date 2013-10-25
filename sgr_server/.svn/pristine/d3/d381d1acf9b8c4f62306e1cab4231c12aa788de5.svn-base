@@ -1,0 +1,33 @@
+.enterprises-index{
+  h2{
+    margin-bottom: 10px;
+  }
+}
+.index-group{
+  .thumbnail{
+    &.hover{
+      background: #ddd;
+    }
+    width: 300px;
+    float: left;
+    margin-right: 30px;
+    padding-top: 30px;
+    text-align: center;
+    height: 170px;
+    cursor: pointer;
+    .glyphicons{
+      display: block;
+      padding: 0
+    }
+    i{
+      width: 100%;
+      display: block;
+    }
+    i:before{
+      font-size: 5em;
+      position: static;
+    }
+  }
+}
+.enterprises-show{
+}

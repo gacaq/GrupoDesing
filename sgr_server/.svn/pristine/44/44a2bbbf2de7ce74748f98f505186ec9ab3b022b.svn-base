@@ -1,0 +1,9 @@
+<h2 class="glyphicons building"><i></i>Empresa</h2>
+<div class="widget widget-2">
+  <div class="widget-head">
+    <h4 class="heading glyphicons edit"><i></i>Nueva Empresa</h4>
+  </div>
+  <div class="widget-body">
+  	<%= render 'form' %>
+  </div>
+</div>

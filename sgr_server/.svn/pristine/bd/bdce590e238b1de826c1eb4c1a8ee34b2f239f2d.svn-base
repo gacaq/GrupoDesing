@@ -1,0 +1,15 @@
+$(function(){
+  body = $('body');
+  if(body.hasClass('enterprises-index')){
+    enterprises = $('.thumbnail');
+    enterprises.find('.btn').hide();
+    enterprises.hover(function(){
+      $(this).addClass('hover');
+    },function(){
+      $(this).removeClass('hover');
+    });
+    enterprises.click(function(){
+      window.location = $(this).find('a').attr('href');
+    });
+  }
+})

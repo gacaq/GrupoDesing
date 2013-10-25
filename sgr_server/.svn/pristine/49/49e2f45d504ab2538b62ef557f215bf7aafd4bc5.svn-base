@@ -1,0 +1,6 @@
+<h1>Editar Rol</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Ver', @role, class: 'btn btn-info' %> |
+<%= link_to 'Atrás', roles_path, class: 'btn btn-inverse' %>

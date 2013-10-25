@@ -1,0 +1,7 @@
+class Device < ActiveRecord::Base
+  attr_accessible :name, :recipe_id, :enterprise_id, :device_category_id
+  has_many :works  
+  belongs_to :enterprise 
+  belongs_to :recipe
+  belongs_to :device_category
+end

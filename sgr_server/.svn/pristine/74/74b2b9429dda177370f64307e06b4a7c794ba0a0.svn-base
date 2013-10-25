@@ -1,0 +1,20 @@
+<ul>
+	<li class="glyphicons home <%= 'active' if controller.controller_name  == 'informations' %>">
+		<%= link_to raw("<i></i><span>Inicio</span>"), root_path %>
+	</li>
+	<% if signed_in? and (current_user.role_id == 1) %>
+		<li class="glyphicons building <%= 'active' if controller.controller_name  == 'enterprises' %>">
+			<%= link_to raw("<i></i><span>Empresas</span>"), enterprises_path %>
+		</li>ç
+	<% elsif signed_in? and current_user.role_id == 2 %>
+		<li class="glyphicons cogwheels <%= 'active' if controller.controller_name  == 'recipes' %>">
+			<%= link_to raw("<i></i><span>Control</span>"), recipes_path %>
+		</li>
+	<% end %>
+	<li class="glyphicons clock <%= 'active' if controller.controller_name  == '' %>">
+		<%= link_to raw("<i></i><span>Historicos</span>"), works_path %>
+	</li>
+	<li class="glyphicons user <%= 'active' if controller.controller_name  == 'user_informations' %>">
+		<%= link_to raw("<i></i><span>Usuarios</span>"), user_informations_path %>
+	</li>
+</ul>

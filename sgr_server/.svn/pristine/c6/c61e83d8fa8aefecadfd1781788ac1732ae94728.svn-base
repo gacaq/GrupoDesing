@@ -1,0 +1,15 @@
+<h1>Empresas</h1><%= link_to "+", new_enterprise_path, class: "btn" %>
+<div class="enterprises">
+  <% @enterprises.each do |enterprise| %>
+    <div class="thumbnail glyphicons building">
+      <i></i>
+      <div class="caption">
+        <h3><%= enterprise.name %></h3>
+        <p><%= pluralize(enterprise.devices.size, "dispositivo") %></p>
+        <p><%= link_to 'Ver', enterprise, class: "btn btn-info" %><%= link_to 'Eliminar', enterprise, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+    </div>
+  <% end %> 
+</div>
+
+

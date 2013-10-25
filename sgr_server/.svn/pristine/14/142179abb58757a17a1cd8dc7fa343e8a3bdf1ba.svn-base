@@ -1,0 +1,5 @@
+class VariableRange < ActiveRecord::Base
+  attr_accessible :recipe_id, :value_max, :value_min, :variable_id
+  belongs_to :variable
+  belongs_to :recipe
+end

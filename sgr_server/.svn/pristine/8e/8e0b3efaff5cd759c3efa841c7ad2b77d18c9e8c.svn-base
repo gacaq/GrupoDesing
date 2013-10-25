@@ -1,0 +1,26 @@
+<h2 class="glyphicons building"><i></i>Empresas</h2>
+<div class="enterprises index-group">
+  <% @enterprises.each do |enterprise| %>
+    <div class="thumbnail">
+      <div class="glyphicons building">
+        <i></i>
+      </div>
+      <div class="caption">
+        <h3><%= enterprise.name %></h3>
+        <p><%= pluralize(enterprise.devices.size, "dispositivo") %></p>
+        <p><%= link_to 'Ver', enterprise, class: "btn btn-info" %></p>
+      </div>
+    </div>
+  <% end %> 
+  <div class="thumbnail new">
+    <div class="glyphicons circle_plus">
+      <i></i>
+    </div>
+    <div class="caption">
+      <h3>Nueva Empresa</h3>
+      <p><%= link_to 'Agregar Empresa', new_enterprise_path, class: "btn btn-info" %></p>
+    </div>
+  </div>
+</div>
+
+

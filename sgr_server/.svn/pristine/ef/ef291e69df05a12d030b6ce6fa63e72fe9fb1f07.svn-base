@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<div class= 'span8 offset4'> 
+	<p>
+	  <b>Rol:</b>
+	  <%= @role.role %>
+	</p>
+
+	<p>
+	  <b>Descripción:</b>
+	  <%= @role.description %>
+	</p>
+
+
+	<%= link_to 'Editar', edit_role_path(@role), class: 'btn btn-success' %> |
+	<%= link_to 'Atrás', roles_path, class: 'btn btn-inverse'  %>
+
+
+</div>

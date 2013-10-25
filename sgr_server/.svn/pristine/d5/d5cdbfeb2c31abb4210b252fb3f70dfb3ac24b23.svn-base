@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div class= 'span8 offset4'>
+
+	<p>
+	  <b>Nombre:</b>
+	  <%= @recipe.name %>
+	  <% if @recipe.device %>
+	  	<p>
+	  	  <b>Tipo:</b> 
+	  	  Set Point
+	  	</p>
+	  <% end %>
+	</p>
+
+	<p>
+	  <b>Producto:</b>
+	  <%= @recipe.product %>
+	</p>
+
+	<p>
+	 
+	  <% if @recipe.device %>
+	  	 <b>Dispositivo:</b> 	   
+	     <%= @recipe.device.name %>
+	    
+	  <% end %>
+	</p>
+
+	<p>
+	 
+	  	 <% @recipe.variable_ranges.each do |v|%>
+	  	 	<p>
+			  <b><%= v.variable.name %></b>
+			</p>
+			<p>
+			  Valor mínimo:
+			  <%= v.value_min %>
+			</p>
+			<p>
+			   Valor máximo:
+			  <%= v.value_max %> 
+			</p>	
+		  <% end %>
+	  	 	  
+	</p>
+
+	<%= link_to 'Editar', edit_recipe_path(@recipe), class: 'btn btn-success' %> |
+	<%= link_to 'Atrás', recipes_path, class: 'btn btn-inverse' %>
+
+
+</div> 

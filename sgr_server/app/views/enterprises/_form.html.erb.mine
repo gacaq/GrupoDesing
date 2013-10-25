@@ -1,0 +1,56 @@
+<% if @enterprise.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@enterprise.errors.count, "error") %> prohibited this enterprise from being saved:</h2>
+    <ul>
+    <% @enterprise.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@enterprise) do |f| %>
+<div class="row-fluid">
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :nombre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class=>'span10' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :logo_image, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :logo_image %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :address, "Dirección", :class => 'control-label' %>
+      <div class="controls">
+        <div class="input-append">
+          <%= f.text_field :address, :class=>'span10' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :telephone, "Teléfono", :class => 'control-label' %><br />
+      <div class="controls">
+          <%= f.text_field :telephone, :class=>'span10' %>
+      </div>
+    </div>
+    <div class="control-group">
+       <%= f.label :enterprise_category_id, "Tipo de Empresa", :class => 'control-label' %><br />
+        <div class="controls">
+          <%= collection_select(:enterprise, :enterprise_category_id, EnterpriseCategory.all, :id, :name, :prompt => t(:seleccione_tipo), :class=>'span12') %> 
+        </div>
+      </div>
+  </div>
+</div>
+<div style="margin: 0;" class="form-actions">
+  <%= f.submit raw('<i></i>Guardar'), :class=>"btn btn-icon btn-primary glyphicons circle_ok" %>
+  <%= link_to raw('<i></i>Atrás'), enterprises_path, class: 'btn btn-icon btn-default glyphicons circle_remove' %>
+</div>
+<% end %>
+

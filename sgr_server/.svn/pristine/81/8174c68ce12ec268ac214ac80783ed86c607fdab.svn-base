@@ -1,0 +1,55 @@
+@import 'bootstrap';
+
+/*------Basic layout------*/
+
+#topActions{
+	width: 100%;
+	height: 80px;
+	background: black;
+	color: white;
+}
+
+#topActions ul{
+	list-style: none;
+}
+
+#topActions li {
+	float: left;
+	margin: 10px 5px;
+}
+
+#leftActions {
+	width: 15%;
+	background: blue;
+	color: white;
+	float: left;
+}
+
+#leftActions ul {
+	list-style: none;
+	padding: 0px
+}
+
+#leftActions ul li {
+	margin: 10px 10px;
+
+}
+
+#leftActions a {
+	text-decoration: none;
+	color: white;
+}
+
+article {
+	width: 85%;
+	float: left;
+}
+
+#topActions #actions{
+	right: 0px;
+}
+#topActions #actions>div{
+	width:100px;
+	height: 70px;
+	float: right;
+}

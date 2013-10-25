@@ -1,0 +1,55 @@
+<h1>Historicos</h1>
+
+<div class="offset4">
+  <table class=" table span8 striped" > 
+
+    <thead>
+    <tr> 
+      <th>Variables</th> 
+    </tr> 
+
+    </thead>  
+
+    <tbody>
+      <% @variables.each do |var| %>
+        <tr>
+          <td>
+          <%= check_box_tag "alternate_numbers[#{var}]" %> <%= var.name %>  <br/>
+
+          </td> 
+
+        </tr>
+
+      <% end %>
+    <tr> 
+      <th>Tiempos</th> 
+    </tr>
+      <td>
+        Fecha-Hora-inicial<br/>
+        <%= text_field :my_object, :start_date %><br/>  
+        Fecha-Hora-final<br/>
+        <%= text_field :my_object, :start_date %><br/>
+        <br/>   
+      </td>       
+    </tr>
+    </tr> 
+
+    <tr>  
+      <label for="theme"><th>Tipo de Historico</th></label> 
+      <tr>
+        <td><%= radio_button_tag 'theme', 'Histograma', true %> Histograma <br/> 
+        <%= radio_button_tag 'theme', 'Poligono de Frecuencia' %> Poligono de Frecuencia <br/>
+        <%= radio_button_tag 'theme', 'Diagrama de tortas' %> Diagrama de tortas <br/>
+        <%= radio_button_tag 'theme', 'Digrama de Barras' %> Digrama de Barras <br/></td>
+      <tr>
+    </tr> 
+
+    <td><%= link_to 'Generar Historico' , historics_path , class: "btn btn-info"%></td>
+       
+         
+    </tbody> 
+
+  </table>
+
+</div>
+

@@ -1,0 +1,10 @@
+class HistoricsController < ApplicationController
+ 
+  before_filter :authenticate_user! 
+
+  def index
+    @variables = Variable.all
+
+  end  
+
+end

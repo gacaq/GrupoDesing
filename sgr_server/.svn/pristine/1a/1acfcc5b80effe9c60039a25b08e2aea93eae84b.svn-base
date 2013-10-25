@@ -1,0 +1,33 @@
+<h1>Usuarios</h1>
+
+<table class="table span8 striped"> 
+ 
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Nombre</th> 
+      <th>Apellido</th>
+      <th>Rol</th> 
+    </tr>
+  </thead> 
+ 
+  <tbody> 
+ 
+    <% @usuario.each do |usu| %>   
+      
+      <tr>
+        <td><%= usu.enterprise.name %></td>
+        <td><%= usu.nombre %></td>
+        <td><%= usu.apellido %></td>
+        <td><%= usu.role.role%></td> 
+        
+
+        <td><%= link_to 'Ver', usu, class: "btn btn-info" %></td>
+        <td><%= link_to 'Editar', edit_user_informations_path(usu), class: "btn btn-success" %></td>
+        <td><%= link_to 'Eliminar', usu, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table> 
+

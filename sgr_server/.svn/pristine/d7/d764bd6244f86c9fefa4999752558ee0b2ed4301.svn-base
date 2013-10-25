@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+<title>Sistema de Gerenciamiento Remoto</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery-2.2.1.min", "rails", "highcharts" %>
+    <%= csrf_meta_tags %>  
+</head>
+	<body class="<%= controller.controller_name %>-<%= controller.action_name %>">
+    <div class="container-fluid left-menu">
+      <%= render "layouts/header" %>
+    <div class="row-fluid rrow main">
+      <div role="main" class="span12 main col">
+        <div class="row-fluid rrow">
+          <div class="span2 col main-left menu-large" >
+              <div class="rrow scroll-y-left" >
+                <%= render "layouts/left_actions" %>
+              </div>
+          </div>
+          
+          <div class="span10 col main-right">
+            <!--<div id="mainYScroller" class="rrow scroll-y" >-->
+              <div class="inner topRight" >
+                <% if user_signed_in? %>
+                  <%= yield %>
+                <% end %>
+              </div>
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+      
+
+      <%= render "layouts/modal" %>
+    </div>
+
+  </body>
+</html>

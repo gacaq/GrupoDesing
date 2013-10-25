@@ -1,0 +1,32 @@
+
+<div Class= 'span8 offset4'> 
+  <%= form_for(@alarm) do |f| %>
+  <% if @alarm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alarm.errors.count, "error") %> prohibited this alarm from being saved:</h2>
+
+      <ul>
+      <% @alarm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo_de_alarma %><br />
+    <%= f.text_field :alarm_type %>
+  </div>
+  <div class="field">
+    <%= f.label :descripción %><br />
+    <%= f.text_field :description %>  
+  </div>
+  <div class="field">
+    <%= f.label :receta %><br />
+    <%= collection_select(:alarm, :recipe_id, Recipe.all, :id, :name, :prompt => t(:select)) %> 
+  </div>
+  <div class="actions" >
+    <%= f.submit %>
+  </div>
+<% end %>
+</div> 

@@ -1,0 +1,84 @@
+class ConfigurationSetsController < ApplicationController
+  before_filter :authenticate_user!
+  # GET /configuration_sets
+  # GET /configuration_sets.json
+  def index
+    @enterprises = Enterprise.includes(:devices).all
+    if current_user.role_id == 1
+      render "su_index"
+    elsif current_user.role_id == 2
+      render "admin_index"
+    end
+  end
+
+  # GET /configuration_sets/1
+  # GET /configuration_sets/1.json
+  def show
+    @configuration_set = ConfigurationSet.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @configuration_set }
+    end
+  end
+
+  # GET /configuration_sets/new
+  # GET /configuration_sets/new.json
+  def new
+    @configuration_set = ConfigurationSet.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @configuration_set }
+    end
+  end
+
+  # GET /configuration_sets/1/edit
+  def edit
+    @configuration_set = ConfigurationSet.find(params[:id])
+  end
+
+  # POST /configuration_sets
+  # POST /configuration_sets.json
+  def create
+    @configuration_set = ConfigurationSet.new(params[:configuration_set])
+
+    respond_to do |format|
+      if @configuration_set.save
+        format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully created.' }
+        format.json { render json: @configuration_set, status: :created, location: @configuration_set }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /configuration_sets/1
+  # PUT /configuration_sets/1.json
+  def update
+    @configuration_set = ConfigurationSet.find(params[:id])
+
+    respond_to do |format|
+      if @configuration_set.update_attributes(params[:configuration_set])
+        format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /configuration_sets/1
+  # DELETE /configuration_sets/1.json
+  def destroy
+    @configuration_set = ConfigurationSet.find(params[:id])
+    @configuration_set.destroy
+
+    respond_to do |format|
+      format.html { redirect_to configuration_sets_url }
+      format.json { head :no_content }
+    end
+  end
+end

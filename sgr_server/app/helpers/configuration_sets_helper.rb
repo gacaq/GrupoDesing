@@ -1,0 +1,2 @@
+module ConfigurationSetsHelper
+end

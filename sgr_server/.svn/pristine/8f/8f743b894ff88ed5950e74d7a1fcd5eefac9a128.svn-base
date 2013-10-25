@@ -1,0 +1,25 @@
+
+<div class="tabbable">
+
+	  <ul class="nav nav-tabs" id="devices">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+        <li class="<%= 'active' if i == 0 %>"><a href="#<%= d.name.parameterize %>" data-toggle="tab"><span class="glyphicons cogwheel"><i></i><%= d.name.titleize %></span></a></li>
+	    <% end %>
+	  </ul>
+	   
+	  <div class="tab-content">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+	      <div class="tab-pane <%= "active" if i == 0%>" id="<%= d.name.parameterize %>">
+          <div class="tab-body">
+          	<%= d.id %>
+          	<%= (d.works.temperatura).map() { |value| value.variable_value } %>
+          	<%= render "historics/grafics", d: d  %>
+          </div>
+	      </div>
+	    <% end %>
+	  </div>
+	</div>
+</div>
+
+
+

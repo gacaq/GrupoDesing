@@ -1,0 +1,113 @@
+.enterprises-index{
+  h2{
+    margin-bottom: 10px;
+  }
+}
+.index-group{
+  .thumbnail{
+    &.hover{
+      background: #ddd;
+    }
+    width: 300px;
+    float: left;
+    margin-right: 30px;
+    padding-top: 30px;
+    text-align: center;
+    height: 170px;
+    cursor: pointer;
+    .glyphicons{
+      display: block;
+      padding: 0
+    }
+    i{
+      width: 100%;
+      display: block;
+    }
+    i:before{
+      font-size: 5em;
+      position: static;
+    }
+  }
+}
+.sessions-new{
+  .navbar.main{
+    .positionWrapper{
+      text-align: center;
+      width: 100%;
+      .logo{
+        float: none;
+      }
+    }
+  }
+  .main-left{
+    width: 100%;
+    .loginWrapper{
+      padding: 100px 3% 61px;
+      position: relative;
+      .loginbox{
+        float: right;
+        position:relative;
+        right: 5%;
+      }
+      h1{
+        color: #797979;
+        text-shadow: 0 1px 0 #000;
+        text-align:left;
+      }
+      .intro{
+        float: left;
+        width: 50%;
+        li{
+          color: #ececec;
+          text-align:left;
+        }
+        .box-1{
+          background: none;
+          border-color: #414448;
+          padding: 0;
+          ul{
+            padding: 0;
+            li{
+              padding: 20px 27px 20px;
+              height: auto;
+              &.glyphicons i{
+                float: left;
+                &:before{
+                  color: #fff;
+                  width: 60px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .main-right{
+    display: none;
+  }
+}
+.tab-content{
+  padding: 0;
+}
+.tab-body {
+  border:1px solid #d1d2d3;
+  border-top:0;
+  background:#f5f5f5;
+  padding: 15px;
+}
+.nav-tabs li .glyphicons{
+  padding: 0 0 0 30px;
+}
+.nav-tabs li .glyphicons i:before{
+  font-size: 20px;
+}
+.nav-tabs li.active .glyphicons, .nav-tabs li.active .glyphicons i:before{
+  color: #fff;
+}
+.pages p{
+  margin-bottom: 0;
+ } 
+.pages .actions{
+  margin-top: 5px;
+}

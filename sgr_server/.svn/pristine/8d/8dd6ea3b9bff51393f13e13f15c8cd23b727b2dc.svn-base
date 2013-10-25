@@ -1,0 +1,24 @@
+class HistoricsController < ApplicationController
+ 
+  before_filter :authenticate_user! 
+
+  def index
+    @enterprises = Enterprise.includes(:devices).all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @enterprises }
+    end
+  end
+
+   def show
+    @enterprise = Enterprise.includes(:devices).find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @enterprise }
+    end
+  end
+
+
+end

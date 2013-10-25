@@ -1,0 +1,11 @@
+<h3>
+  <%= device.name.try(:titleize) %>
+  <span class="btn btn-success btn-small">activo</span>
+  <!-- <span class="btn btn-inverse btn-small">inactivo</span> -->
+</h3>
+<p>
+  <!-- <a href="#"><i></i></a> -->
+  <%= device.device_category.name.try(:titleize) %>
+</p>
+<!-- <b>Estado:</b> <%# device.status %> -->
+

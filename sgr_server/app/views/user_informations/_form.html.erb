@@ -1,0 +1,19 @@
+<div class= 'span8 offset4'>
+  <%= form_for @usuario, url: user_information_path(@usuario.id), method: :put do |f| %>
+
+      <div class="field"> 
+        <%= f.label :enterprise_id, "Empresa" %><br />
+        <%= f.select :enterprise_id, Enterprise.all.map { |e| [e.name.titleize, e.id] } %> 
+      </div>
+
+      <div class="field">
+        <%= f.label :role_id, "Rol" %><br />
+        <%= f.select :role_id, Role.all.map { |r| [r.name.titleize, r.id] } %> 
+      </div>
+
+      <div class="actions">
+    	 <%= submit_tag  "Guardar cambios"%>
+  	  </div>
+   <% end %>
+</div> 
+

@@ -1,0 +1,17 @@
+$(function(){
+  body = $('body');
+  indexGroup = $('.index-group')
+  if(indexGroup.length > 0){
+    indexItems = indexGroup.find('.thumbnail');
+    indexItems.find('.btn').hide();
+    indexItems.hover(function(){
+      $(this).addClass('hover');
+    },function(){
+      $(this).removeClass('hover');
+    });
+    indexItems.click(function(){
+      window.location = $(this).find('a').attr('href');
+    });
+  }
+  $('.glyphicons.alarm').tooltip()
+})

@@ -1,0 +1,59 @@
+<div class= 'span8 offset4'>
+  <%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <div class="field">
+    <%= f.label :Nombre %><br />
+    <%= f.text_field :name %>  
+  </div>
+  <div class="field">
+    <%= f.label :Producto %><br /> 
+    <%= f.text_field :product %> 
+  </div>
+
+
+  <div class="field">
+     <%= f.label :Dispositivo %><br />
+     <%= collection_select(:recipe, :device, Device.all, :id, :name, :prompt => t(:select)) %>    
+  </div>
+  <div class="field">
+
+
+    <% @recipe.variable_ranges.each do |project| %>
+      
+      <%= f.fields_for :variable_ranges, project do |vr| %>
+         <p>
+         <b><%= project.variable.name %></b>
+         </p>
+         <p>
+         Valor máximo<br />
+         <%= vr.text_field :value_max %><br />
+         </p>
+         <p>
+         Valor mínimo<br /> 
+         <%= vr.text_field :value_min %><br />
+         </p>
+      <% end %>
+    <% end %>
+  
+    
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  
+<% end %>
+              
+</div>

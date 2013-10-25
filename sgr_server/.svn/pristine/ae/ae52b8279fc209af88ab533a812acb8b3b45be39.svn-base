@@ -1,0 +1,10 @@
+<fieldset>
+	<%= f.label :variable_id %>
+	<%= collection_select(:variable_range, :variable_id, Variable.all, :id, :name) %>
+	<%= f.label :value_max %>
+	<%= f.text_field :value_max %>
+	<%= f.label :value_min %>
+	<%= f.text_field :value_min %>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to "Borrar variable", '#', class: "remove_fields" %>
+</fieldset>

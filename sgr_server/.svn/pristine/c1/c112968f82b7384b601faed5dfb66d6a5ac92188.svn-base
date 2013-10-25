@@ -1,0 +1,36 @@
+<div class="tabbable">
+
+  <ul class="nav nav-tabs" id="enterpriseConfigSets">
+    <% @enterprises.each_with_index do |e, i| %>
+      <li class="<%= 'active' if i == 0 %>"><a href="#<%= e.name.parameterize %>" data-toggle="tab"><span class="glyphicons building"><i></i><%= e.name.titleize %></span></a></li>
+    <% end %>
+  </ul>
+   
+  <div class="tab-content">                      
+    <% @enterprises.each_with_index do |e, i| %>
+      <div class="tab-pane <%= "active" if i == 0%>" id="<%= e.name.parameterize %>">
+        <div class="tab-body"> 
+          <div class="tabbable">
+
+            <ul class="nav nav-tabs" id="deviceConfigSets">
+              <% e.devices.each_with_index do |d, i| %>
+                <li class="<%= 'active' if i == 0 %>"><a href="#<%= d.name.parameterize %>" data-toggle="tab"><span class="glyphicons cogwheel"><i></i><%= d.name.titleize %></span></a></li>
+              <% end %>
+            </ul>
+             
+            <div class="tab-content">
+              <% e.devices.each_with_index do |d, i| %>
+                <div class="tab-pane <%= "active" if i == 0%>" id="<%= d.name.parameterize %>">
+                  <div class="tab-body">
+                    <%= render "form", configuration_set: (d.configuration_set || current_user.configuration_sets.new), device: d %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

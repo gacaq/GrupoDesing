@@ -1,0 +1,121 @@
+
+<div class="tabbable">
+
+	  <ul class="nav nav-tabs" id="devices">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+        <li class="<%= 'active' if i == 0 %>"><a href="#<%= d.id %>_device" data-toggle="tab"><span class="glyphicons cogwheel"><i></i><%= d.name.titleize %></span></a></li>
+	    <% end %>
+	  </ul>
+	   
+	  <div class="tab-content">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+	      <div class="tab-pane <%= "active" if i == 0%>" id="<%= d.id %>_device">
+
+          <div class="tab-body">
+
+          	<%= form_tag(start_end_path, method: :get, remote: :true ) do %>
+
+               <div class="control-group"> 
+                 <%= hidden_field_tag :iterator, i %><br />
+               </div>
+
+               <div class="control-group"> 
+                 <%= hidden_field_tag :device_id, d.id %><br />
+               </div>
+
+                <div class="control-group"> 
+                 <%= label_tag :Tiempo %>
+               </div>
+
+               <table>
+                  <tr>
+                  <td WIDTH="50"> <div class="control-group"> <p ALIGN=center><%= label_tag :Horas %> 
+                    <%= radio_button_tag 'option_time', "Horas", true %> </p>  </div></td>
+                  <td WIDTH="50" > <div class="control-group"> <p ALIGN=center> <%= label_tag :Dias %> 
+                    <%= radio_button_tag 'option_time', "Dias" %> </p></div></td>
+                  <td WIDTH="50" > <div class="control-group"> <p ALIGN=center><%= label_tag :Semanas %> 
+                    <%= radio_button_tag 'option_time', "Semanas" %> </p></div></td>
+                  </tr>
+               </table> <br />
+
+
+
+          		 <div class="control-group"> 
+        			   <%= label_tag :fecha_y_hora_inicial %><br />
+        		     <div class="controls">
+        			   <%= select_datetime Time.now, :order => [:day, :month, :year], prefix: "start" %>
+        		    </div>
+      			   </div>
+
+      			   <div class="control-group"> 
+        			   <%= label_tag :fecha_y_hora_final %><br />
+        		     <div class="controls">
+        			   <%= select_datetime Time.now, :order => [:day, :month, :year], prefix: "end" %>
+        		     </div>
+      			   </div>
+
+               
+
+               <div style="margin: 0;" class="form-actions">
+                 <%= button_tag raw('<i></i>Graficar'), :class=>"btn btn-icon btn-primary glyphicons circle_ok" %>
+                 <%= link_to raw('<i></i>Atrás'), historics_path, class: 'btn btn-icon btn-default glyphicons circle_remove' %>
+              </div>
+            <% end %>  
+
+            <h3>
+                  <%= "Temperatura" %>
+            </h3>
+
+           <!--CHARTS TEMPERATURA -->   
+            <ul class="nav nav-tabs" id="chartstemp">
+                <li class="<%= 'active'  %>"><a href="#tab1-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Tiempo Real</span></a></li>
+
+                <li><a href="#tab2-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Linea</span></a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane <%= "active" %>" id="tab1-<%= d.id %>">
+                <div class="tab-body">
+                   <div id="chart1div-<%= d.id %>" style="width: 980px; height: 300px;"></div>   
+                </div>
+              </div>
+              
+              <div class="tab-pane" id="tab2-<%= d.id %>">
+                <div class="tab-body">
+                   <div id="chart2div-<%= d.id %>" style="width: 980px; height: 300px;"></div>   
+                </div>
+              </div>
+            </div>
+
+            <h3>
+                  <%= "Humedad Relativa" %>
+            </h3>
+
+            <!--CHARTS HUMEDAD RELATIVA -->
+            <ul class="nav nav-tabs" id="chartshr">
+                <li class="<%= 'active'  %>"><a href="#tab3-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Tiempo Real</span></a></li>
+                <li><a href="#tab4-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Linea</span></a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane <%= "active" %>" id="tab3-<%= d.id %>">
+
+                <div class="tab-body">
+                   <div id="chart3div-<%= d.id %>" style="width: 980px; height: 300px;"></div>   
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab4-<%= d.id %>">
+
+                <div class="tab-body">
+                   <div id="chart4div-<%= d.id %>" style="width: 980px; height: 300px;"></div>   
+                </div>
+              </div>
+            </div>
+
+           </div>
+	      </div>
+	    <% end %>
+	  </div>
+	</div> 
+</div>

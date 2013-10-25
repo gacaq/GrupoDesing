@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class= 'span8 offset4' >
+
+<p>
+  <b>Tipo de Alarma:</b>
+  <%= @alarm.alarm_type %>
+</p>
+
+<p>
+  <b>Descripción:</b>
+  <%= @alarm.description %>
+</p>
+
+<p>
+  <b>Receta:</b> 
+  <%= @alarm.recipe.name %> 
+</p>
+
+<p>
+  	 <% @alarm.recipe.variable_ranges.each do |v|%>
+  	 	<p>
+		  <b><%= v.variable.name %></b>
+		</p>
+		<p>
+		  Valor mínimo:
+		  <%= v.value_min %>
+		</p>
+		<p> 
+		   Valor máximo:
+		  <%= v.value_max %> 
+		</p>	
+	 <% end %>  
+  
+</p>
+
+
+<%= link_to 'Editar', edit_alarm_path(@alarm), class: 'btn btn-success' %> |
+<%= link_to 'Atrás', alarms_path, class: 'btn btn-inverse' %>
+
+</div>

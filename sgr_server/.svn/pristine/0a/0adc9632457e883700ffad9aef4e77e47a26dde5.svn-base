@@ -1,0 +1,74 @@
+<section class="enterpriseInfo">
+
+<div class="widget widget-2">
+  <div class="widget-head">
+    <h4 class="heading glyphicons edit"><%= link_to raw("<i></i>"), edit_enterprise_path(@enterprise) %><%= @enterprise.name.try(:titleize) %></h4>
+  </div>
+  <div class="widget-body">
+  	<div class="row-fluid">
+  		<div class="span4">
+			  <%= image_tag @enterprise.logo_image %>
+			</div>
+			<div class="span8">
+				<div class="info">
+				  <b>Dirección:</b>
+				  <%= @enterprise.address.try(:titleize) %>
+				</div>
+				<div class="info">
+				  <b>Telefóno:</b>
+				  <%= @enterprise.telephone %>
+				</div>
+				<div class="info">
+				  <b>Tipo de empresa:</b>
+				  <%= @enterprise.enterprise_category.name %>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+
+</section>
+
+<% if @enterprise.users.principal_user %>
+
+	<section  class="principalUserInfo">
+		<h3>Contacto Responsable</h3>
+		<p>
+			<b>Nombre:</b>
+			<%= "#{@enterprise.users.principal_user.nombre.titleize} #{@enterprise.users.principal_user.apellido.titleize}" %>
+		</p>
+		<p>
+			<b>Correo:</b>
+			<%= "#{@enterprise.users.principal_user.email}" %>
+		</p>
+		<p>
+			<b>Teléfono:</b>
+			<%= "#{@enterprise.users.principal_user.telephone}" %>
+		</p>
+	</section>
+
+<% end %>
+
+<section class="devices">
+
+	<div class="tabbable">
+
+	  <ul class="nav nav-tabs" id="enterpriseWorks">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+	      <li class="<%= 'active' if i == 0 %>"><a href="#<%= d.name.parameterize %>" data-toggle="tab"><%= d.name.titleize %></a></li>
+	    <% end %>
+	    <li><%= link_to "+", new_device_path(:enterprise_id => @enterprise.id), remote: true %>
+	  </ul>
+	   
+	  <div class="tab-content">
+	    <% @enterprise.devices.each_with_index do |d, i| %>
+	      <div class="tab-pane <%= "active" if i == 0%>" id="<%= d.name.parameterize %>">
+	      	<%= render "devices/show", device: d, enterprise: @enterprise %>
+	      	<%= render "recipes/show", device: d %>
+	      </div>
+	    <% end %>
+	  </div>
+	</div>
+
+</section>
+ 
