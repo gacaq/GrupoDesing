@@ -1,17 +1,17 @@
-  new Highcharts.Chart({
-        chart: { renderTo: 'chart1div-<%= @device_id %>' },
-        title: { text: 'Datos actuales' },
-        xAxis: { type: 'datetime' },
-        yAxis: {
-                    title: { text: 'Grados centígrados (C°)'}
-                },
-        series: [{
-            name: 'Temperatura',
-            //pointInterval: <%= 29.second * 1000 %>,
-            //pointStart: <%= @datetime_start.to_i*1000 %>,
-            data: <%= raw (@data_temp).map { |value| [l(value.created_at, format: :short).to_s, value.variable_value] } %>
-                }]
-    });
+new Highcharts.Chart({
+    chart: { renderTo: 'chart1div-<%= @device_id %>' },
+    title: { text: 'Datos actuales' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+        title: { text: 'Grados centígrados (C°)'}
+    },
+    series: [{
+        name: 'Temperatura',
+        //pointInterval: <%= 29.second * 1000 %>,
+        //pointStart: <%= @datetime_start.to_i*1000 %>,
+        data: <%= raw (@data_temp).map { |value| [l(value.created_at, format: :short).to_s, value.variable_value] } %>
+    }]
+});
 
    new Highcharts.Chart({
         chart: {

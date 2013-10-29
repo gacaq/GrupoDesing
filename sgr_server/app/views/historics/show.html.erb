@@ -1,4 +1,121 @@
+ <script type="text/javascript" charset="utf-8">
+   $(function(){
+       new Highcharts.Chart({
+           chart: { renderTo: 'dynamic' },
+           title: { text: 'Datos actuales' },
+           xAxis: { type: 'datetime' },
+           yAxis: {
+               title: { text: 'Grados centígrados (C°)'}
+           },
+           events: {
+               load: (function () {
+                   // set up the updating of the chart each second
+                   var series = this.series[0];
+                   setInterval(function () {
+                       var x = (new Date()).getTime(), // current time
+                               y = Math.random();
+                       series.addPoint([x, y], true, true);
+                   }, 1000);
+               }  )
+           },
+           series: [{
+               name: 'Random data',
+               data: (function() {
+                   // generate an array of random data
+                   var data = [],
+                           time = (new Date()).getTime(),
+                           i;
 
+                   for (i = -19; i <= 0; i++) {
+                       data.push({
+                           x: time + i * 1000,
+                           y: Math.random()
+                       });
+                   }
+                   return data;
+               })()
+           }]
+       });
+   })
+   /*
+   $(function () {
+       $(document).ready(function() {
+           Highcharts.setOptions({
+               global: {
+                   useUTC: false
+               }
+           });
+
+           var chart;
+           $('#dynamic').highcharts({
+               chart: {
+                   type: 'spline',
+                   marginRight: 10,
+                   events: {
+                       load: function() {
+
+                           // set up the updating of the chart each second
+                           var series = this.series[0];
+                           setInterval(function() {
+                               var x = (new Date()).getTime(), // current time
+                                       y = Math.random();
+                               series.addPoint([x, y], true, true);
+                           }, 1000);
+                       }
+                   }
+               },
+               title: {
+                   text: 'Live random data'
+               },
+               xAxis: {
+                   type: 'datetime',
+                   tickPixelInterval: 150
+               },
+               yAxis: {
+                   title: {
+                       text: 'Value'
+                   },
+                   plotLines: [{
+                       value: 0,
+                       width: 1,
+                       color: '#808080'
+                   }]
+               },
+               tooltip: {
+                   formatter: function() {
+                       return '<b>'+ this.series.name +'</b><br/>'+
+                               Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
+                               Highcharts.numberFormat(this.y, 2);
+                   }
+               },
+               legend: {
+                   enabled: false
+               },
+               exporting: {
+                   enabled: false
+               },
+               series: [{
+                   name: 'Random data',
+                   data: (function() {
+                       // generate an array of random data
+                       var data = [],
+                               time = (new Date()).getTime(),
+                               i;
+
+                       for (i = -19; i <= 0; i++) {
+                           data.push({
+                               x: time + i * 1000,
+                               y: Math.random()
+                           });
+                       }
+                       return data;
+                   })()
+               }]
+           });
+       });
+
+   }); */
+ </script>
 <div class="tabbable">
 
 	  <ul class="nav nav-tabs" id="devices">
@@ -71,6 +188,7 @@
                 <li class="<%= 'active'  %>"><a href="#tab1-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Tiempo Real</span></a></li>
 
                 <li><a href="#tab2-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Linea</span></a></li>
+              <li><a href="#tab3-<%= d.id %>" data-toggle="tab"><span class="glyphicons stats"><i></i>Linea</span></a></li>
             </ul>
 
             <div class="tab-content">
@@ -79,10 +197,16 @@
                    <div id="chart1div-<%= d.id %>" style="width: 980px; height: 300px;"></div>   
                 </div>
               </div>
-              
+
               <div class="tab-pane" id="tab2-<%= d.id %>">
                 <div class="tab-body">
-                   <div id="chart2div-<%= d.id %>" style="width: 980px; height: 300px;"></div>   
+                  <div id="chart2div-<%= d.id %>" style="width: 980px; height: 300px;"></div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab3-<%= d.id %>">
+                <div class="tab-body">
+                  <div id="dynamic" style="width: 980px; height: 300px;"></div>
                 </div>
               </div>
             </div>
