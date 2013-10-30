@@ -47,7 +47,7 @@
     <file path="/configuration_sets_controller.rb" changelist="314be7e3-d11d-4073-b165-be345d1e15ea" time="1382732286304" ignored="false" />
     <file path="/configuration_set.rb" changelist="314be7e3-d11d-4073-b165-be345d1e15ea" time="1382732612349" ignored="false" />
     <file path="/start_end.js.erb" changelist="314be7e3-d11d-4073-b165-be345d1e15ea" time="1383073686310" ignored="false" />
-    <file path="/show.html.erb" changelist="314be7e3-d11d-4073-b165-be345d1e15ea" time="1383078803327" ignored="false" />
+    <file path="/show.html.erb" changelist="314be7e3-d11d-4073-b165-be345d1e15ea" time="1383159727400" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,14 +88,16 @@
       <file leaf-file-name="start_end.js.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/historics/start_end.js.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="3" selection-start="500" selection-end="500" vertical-scroll-proportion="-8.5">
+            <state line="13" column="3" selection-start="500" selection-end="500" vertical-scroll-proportion="-0.65384614">
               <folding>
                 <marker date="1383074243223" expanded="true" signature="1087:1101" placeholder="..." />
                 <marker date="1383074243223" expanded="true" signature="1172:1202" placeholder="..." />
                 <marker date="1383074243223" expanded="true" signature="1256:1265" placeholder="..." />
+                <marker date="1383074243223" expanded="true" signature="1425:1538" placeholder="{...}" />
                 <marker date="1383074243223" expanded="true" signature="2815:2829" placeholder="..." />
                 <marker date="1383074243223" expanded="true" signature="2900:2930" placeholder="..." />
                 <marker date="1383074243223" expanded="true" signature="2984:2993" placeholder="..." />
+                <marker date="1383074243223" expanded="true" signature="3153:3266" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -104,15 +106,8 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/historics/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="9" selection-start="808" selection-end="808" vertical-scroll-proportion="0.28073394">
-              <folding>
-                <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="1228" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,7 +115,7 @@
       <file leaf-file-name="_header.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="8" column="28" selection-start="352" selection-end="352" vertical-scroll-proportion="-5.230769">
               <folding />
             </state>
           </provider>
@@ -193,7 +188,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
@@ -269,6 +263,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,7 +381,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
       <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSRemoteDebuggerConfigurationSettings>
       <method />
@@ -539,14 +534,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2128788" sideWeight="0.67105263" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2159091" sideWeight="0.67105263" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -664,9 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/historics/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/work.rb">
@@ -676,32 +669,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-1.9.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="28407" selection-start="92635" selection-end="92635" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="4" column="28407" selection-start="92635" selection-end="92635" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/rails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="27" selection-start="16792" selection-end="16792" vertical-scroll-proportion="0.48686516">
-          <folding />
-        </state>
+        <state line="377" column="27" selection-start="16792" selection-end="16792" vertical-scroll-proportion="0.48686516" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="59" selection-start="701" selection-end="701" vertical-scroll-proportion="0.45698926">
+        <state line="15" column="59" selection-start="701" selection-end="701" vertical-scroll-proportion="0.45698926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="28" selection-start="352" selection-end="352" vertical-scroll-proportion="-5.230769">
           <folding />
         </state>
       </provider>
@@ -715,29 +700,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/historics/start_end.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="3" selection-start="500" selection-end="500" vertical-scroll-proportion="-8.5">
+        <state line="13" column="3" selection-start="500" selection-end="500" vertical-scroll-proportion="-0.65384614">
           <folding>
             <marker date="1383074243223" expanded="true" signature="1087:1101" placeholder="..." />
             <marker date="1383074243223" expanded="true" signature="1172:1202" placeholder="..." />
             <marker date="1383074243223" expanded="true" signature="1256:1265" placeholder="..." />
+            <marker date="1383074243223" expanded="true" signature="1425:1538" placeholder="{...}" />
             <marker date="1383074243223" expanded="true" signature="2815:2829" placeholder="..." />
             <marker date="1383074243223" expanded="true" signature="2900:2930" placeholder="..." />
             <marker date="1383074243223" expanded="true" signature="2984:2993" placeholder="..." />
+            <marker date="1383074243223" expanded="true" signature="3153:3266" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/historics/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="9" selection-start="808" selection-end="808" vertical-scroll-proportion="0.28073394">
-          <folding>
-            <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="1228" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
