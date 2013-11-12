@@ -26,13 +26,38 @@
            }]
        });
    })
+   function getJson() {
+       return JSON.parse($.ajax({
+           type: 'GET',
+           url: '/historics_random',
+           dataType: 'json',
+           global: false,
+           async:false,
+           success: function(data) {
+               for (var x = 0; x < data.length; x++) {
+                   return data[x].random
+               }
+           }
+       }).responseText);
+   }
 
    $(function(){
        var chart = $('#dynamic').highcharts();
        var series = chart.series[0];
        setInterval(function () {
            var x = (new Date()).getTime(), // current time
-                   y = Math.random();
+                   y = JSON.parse($.ajax({
+               type: 'GET',
+               url: '/historics_random',
+               dataType: 'json',
+               global: false,
+               async:false,
+               success: function(data) {
+                   for (var x = 0; x < data.length; x++) {
+                       return data[x].random
+                   }
+               }
+           }).responseText);
            series.addPoint([x, y], true, true);
        }, 1000);
        chart.redraw();

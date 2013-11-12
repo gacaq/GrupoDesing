@@ -40,5 +40,11 @@ class HistoricsController < ApplicationController
 
   end
 
+  def random1
+    respond_to do |format|
+      format.json { render json: rand(100) }
+    end
+  end
+
 
 end

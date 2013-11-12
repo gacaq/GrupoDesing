@@ -32,6 +32,7 @@ SgrServer::Application.routes.draw do
   get 'start_end', to: 'historics#start_end'
   get "enterprise_historics", to: 'historics#show'
   get 'historics', to: 'historics#index'
+  get 'historics_random', to: 'historics#random1'
 
  
  
