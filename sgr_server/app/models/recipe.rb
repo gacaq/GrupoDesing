@@ -11,8 +11,8 @@ class Recipe < ActiveRecord::Base
 
   #borrar active de la base de datos
 
-   def variable_range()
-    VariableRange.includes(:variable).all
+   def variable_range_recipe()
+    VariableRange.includes(:variable).find_all_by_owner_id(self.id)
   end
 
 end

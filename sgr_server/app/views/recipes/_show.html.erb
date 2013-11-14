@@ -1,74 +1,78 @@
 <form>
 
+
   <h4>Rangos de Funcionamiento (Set-Points)</h4>
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>Variable</th>
-        <th>Actual</th>
-        <th>Límites</th>
-        <th>Valor minimo Alarma</th>
-        <th>Valor maximo Alarma</th>
-        <th>Estado</th>
+        <!--<th>Actual</th>-->
+        <!-- <th>Límites</th> -->
+        <th>Valor minimo Set-point</th>
+        <th>Valor maximo Set-point</th>
+       <!-- <th>Estado</th> -->
 
       </tr>
     </thead>
     <tbody>
-
-
-
     <% if device.configuration_set_id > 0 %>
         <% configuration = device.configuration(device.configuration_set_id) %>
-        <% configuration.alarms.each do |a| %>
-            <% variable_ranges = a.variable_range %>
-            <% variable_ranges_alarms = a.variable_ranges_alarms(variable_ranges,a.id) %>
+        <% variable_ranges = configuration.recipe.variable_range_recipe %>
 
-            <% variable_ranges_alarms.each do |vr| %>
-
+            <% variable_ranges.each do |vr| %>
               <tr>
                 <td><%= vr.variable.name %></td>
-                <td><%= a.id %></td> 
-                <td><%= a.id %></td>  
+                <!--<td><%= vr.id %></td> -->
+                <!-- <td><%= vr.id %></td> -->
                 <td><%= vr.value_min %></td>
                 <td><%= vr.value_max %></td>
-                <td>
-                  <% if a.active == true %>
-                    <span class="btn btn-success btn-small">activo</span>
-                  <% end %>
-                  <span class="btn btn-inverse btn-small">inactivo</span>
-                </td>
               </tr>
-
             <% end %>
-                                
-        <% end %> 
-                          
+                         
     <% end %>
      
     </tbody>
   </table>
 
-  <!-- <fieldset>
-		<legend>Alarmas</legend>
-		<div class="tabbable">
-		  <ul class="nav nav-tabs" id="deviceAlarms">
-	      <li class="active"><a href="#alarma1" data-toggle="tab">Alarma Principal</a></li>
-	      <li><a href="#alarma2" data-toggle="tab">Segunda Alarma</a></li>
-		  </ul>
-		   
-		  <div class="tab-content">
-	      <div class="tab-pane active" id="alarma1">
+    <h4>Alarmas</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <!--<th>Actual</th>-->
+        <!-- <th>Límites</th> -->
+        <th>Valor minimo Alarma</th>
+        <th>Valor maximo Alarma</th>
+        <th>Estado</th> 
 
-	      </div>
-	      <div class="tab-pane" id="alarma2">
+      </tr>
+    </thead>
+    <tbody>
+    <% if device.configuration_set_id > 0 %>
+        <% configuration = device.configuration(device.configuration_set_id) %>
+        <% configuration.alarms.each do |a| %>
 
-	      </div>
+            <% variable_ranges = a.variable_range_alarm %>
+            <% variable_ranges.each do |vr| %>
+              <tr>
+                <td><%= vr.variable.name %></td>
+                <!--<td><%= vr.id %></td> -->
+                <!-- <td><%= vr.id %></td> -->
+                <td><%= vr.value_min %></td>
+                <td><%= vr.value_max %></td>
+                <td><% if a.active == true %>
+                    <span class="btn btn-success btn-small">activo</span>
+                     <% end %>
+                    <span class="btn btn-inverse btn-small">inactivo</span>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
 
-		  </div>
-		</div>
-		
-
-  </fieldset> -->
+    <% end %>
+     
+    </tbody>
+  </table>
 
 
 

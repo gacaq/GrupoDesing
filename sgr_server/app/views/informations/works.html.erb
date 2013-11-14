@@ -29,8 +29,32 @@
                  <h3>
                    <%= d.name.try(:titleize) %>
                    <span class="btn btn-success btn-small">activo</span>
+                   <span id="msg"></span>
                    <!-- <span class="btn btn-inverse btn-small">inactivo</span> -->
                  </h3>
+
+                  <script type="text/javascript" charset="utf-8">
+                     $(function(){
+                         setInterval(function () {
+                                 y = JSON.parse($.ajax({
+                                 type: 'GET',
+                                 url: '/historics_random',
+                                 dataType: 'json',
+                                 global: false,
+                                 async:false,
+                                 success: function(data) {
+                                     for (var x = 0; x < data.length; x++) {
+                                         return data[x]
+                                     }
+                                 }
+                             }).responseText);
+                             //getElementById("msg").val = y;
+                             $("#msg").text(y);
+                            // document.write(y);
+                         }, 29000);
+                     })
+
+                   </script>
 
                  <%= render "recipes/show", device: d %>
         

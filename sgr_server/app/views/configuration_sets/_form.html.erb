@@ -16,39 +16,52 @@
     	<%= hidden_field_tag :device_id, device.id %> <!--Se pone device.id sin params porque en su_index no se esta mandando como parametros ya que no es un formulario -->
 		<%= f.submit "Guardar set" %>
 		<%= f.submit "Aplicar set", remote: true %>
+
+		
 		<fieldset>
             <legend>Rangos de Funcionamiento (Set-Points)</legend>
-           		<div class="tabbable" id="configuration_setRecipe" data-quantity="1">
-                    <div class="tab-content">
-                        <%= f.fields_for :recipe, (configuration_set.recipe || configuration_set.build_recipe) do |r| %>
-                            <%= render "recipe_fields", f: r %>
-                        <% end %>
-                    </div>
-          		</div>
-        </fieldset>
+                <div class="tabbable" id="configuration_setRecipe" data-quantity="1">
+                        <div class="tab-content">
+                             <%= f.fields_for :recipe, (configuration_set.recipe || configuration_set.build_recipe) do |r| %>
+                                 <%= render "recipe_fields", f: r %>
+                             <% end %>
+                        </div>
+                </div>
+           		
+    </fieldset>
 
 
 		<fieldset>
+			
 			<legend>Alarmas</legend>
 			<div class="tabbable" id="configuration_setAlarms" data-quantity="<%= configuration_set.alarms.size.to_i %>">
 				<ul class="nav nav-tabs addControls" id="alarmConfigSets">
 					<% configuration_set.alarms.each_with_index do |r, i| %>
 						<li><%= link_to raw("<span class='glyphicons alarm'><i></i>#{i+1}</span>"), "#alarm-#{i+1}", :"data-toggle" => "tab" %></li>
+
 					<% end %>
 					<li><%= link_to_add_fields "Nueva alarma", f, :alarms %></li>
 				</ul> 
 				<div class="tab-content">
-                      <% i = 1 %>
-                      <%= f.fields_for :alarms do |v| %>
-                            <div class="tab-pane <%= "active" if i == 1%>" id="alarm-<%= i %>">
-                              <%= render "alarm_fields", f: v %>
-                            </div>
-                            <% i = i+1 %>
-					  <% end %>
-                  </div>
+                    <% i = 0 %>
+                    <%= f.fields_for :alarms do |v| %>
+                           <div class="tab-pane <%= "active" if i == 0 %>" id="alarm-<%= i+1 %>">
+                                <div class="tab-body">
+                                    <fieldset>
+                                        <%= v.fields_for :variable_ranges do |vr| %>
+                                            <%= render "variable_range_fields", f: vr %>
+                                        <% end %>
+                                        <div class="addControls">
+                                            <%= link_to_add_fields "Nueva variable", v, :variable_ranges %>
+                                        </div>
+                                    </fieldset>
+                                  </div>
+                           </div>
+                      <% i = i+1 %>
+                    <% end %>
+                 </div>
 			</div>
 			
-
 		</fieldset>
 
 <% end %>

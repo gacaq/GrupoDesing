@@ -41,8 +41,11 @@ class HistoricsController < ApplicationController
   end
 
   def random1
+
+    @data = Work.last(1)
+
     respond_to do |format|
-      format.json { render json: rand(100) }
+      format.json { render json: @data[0].variable_value}
     end
   end
 

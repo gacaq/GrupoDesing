@@ -4,6 +4,12 @@ class VariableRange < ActiveRecord::Base
   #belongs_to :recipe
   #belongs_to :alarm
   belongs_to :owner, polymorphic:  true
+
+  validate :min_value_less_than
+
+  def min_value_less_than
+  	errors.add(:value_min, "Valor Minimo debe ser menor que el maximo") unless value_max >= value_min
+  end
 end
 
 

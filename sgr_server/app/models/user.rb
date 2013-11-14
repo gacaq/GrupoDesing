@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  validates :nombre, :presence => {:message => "Debe ingresar un nombre"}
+
   def self.principal_user
     find_by_principal(true)
   end

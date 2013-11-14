@@ -1,71 +1,21 @@
-new Highcharts.Chart({
-    chart: { renderTo: 'chart1div-<%= @device_id %>' },
-    title: { text: 'Datos actuales' },
-    xAxis: { type: 'datetime' },
-    yAxis: {
-        title: { text: 'Grados centígrados (C°)'}
-    },
-    series: [{
-        name: 'Temperatura',
-        //pointInterval: <%= 29.second * 1000 %>,
-        //pointStart: <%= @datetime_start.to_i*1000 %>,
-        data: <%= raw (@data_temp).map { |value| [l(value.created_at, format: :short).to_s, value.variable_value] } %>
-    }]
-});
-
-   new Highcharts.Chart({
-        chart: {
-            renderTo: 'chart2div-<%= @device_id %>',
-            type: 'column'
-        },
-        title: {
-            text: 'Datos actuales'
-        },
-        subtitle: {
-            text: 'Temperatura'
-        },
-        xAxis: {
-            categories: <%= raw (@data_temp).map { |value| [l(value.created_at, format: :short).to_s] } %>
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Grados centígrados (C°)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: 'Temperatura',
-            data:  <%= (@data_temp).map { |value| [value.variable_value] } %>
-        }]
-    });
-
-
-    new Highcharts.Chart({
-        chart: { renderTo: 'chart3div-<%= @device_id %>' },
+  new Highcharts.Chart({
+        chart: { renderTo: 'chart2div-<%= @device_id %>' },
         title: { text: 'Datos actuales' },
         xAxis: { type: 'datetime' },
         yAxis: {
-                    title: { text: 'Valores'}
+                    title: { text: 'Grados centígrados (C°)'}
                 },
         series: [{
-            name: 'Humedad Relativa',
-            data: <%= (@data_hr).map { |value| value.variable_value } %>
+            name: 'Temperatura',
+            //pointInterval: <%= 29.second * 1000 %>,
+            //pointStart: <%= @datetime_start.to_i*1000 %>,
+            data: <%= raw (@data_temp).map { |value| [l(value.created_at, format: :short).to_s, value.variable_value] } %>
                 }]
     });
+
+    
+
+   
 
     new Highcharts.Chart({
         chart: {

@@ -1,3 +1,13 @@
+<% if @usuario.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this enterprise from being saved:</h2>
+    <ul>
+    <% @usuario.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
   <%= form_tag(user_informations_path, method: :post) do %>
    <div class="row-fluid">

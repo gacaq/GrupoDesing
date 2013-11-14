@@ -38,24 +38,6 @@ class CallbacksController < ApplicationController
 			@alarms.each do |a|
 				a.activate(d)
 			end
-			
-			#  @last_works = Work.find_with_id_and_variable(d.id, 1).last(3) # inicialmente se hace de forma manual
-			# active_alarm = false
-
- 		# 	@last_works.each do |w|
-  	# 			active_alarm = active_alarm or w.active?(w.variable.variable_ranges.value_min, w.variable.variable_ranges.value_max)
-			# end
-
-			# if active_alarm
-			# 	@alarms = d.configuration_sets.recipes.alarms
-			# 	@alarms.each do |a|
-			# 		@last_works.each do |w|
-			# 			if w.variable_value < a.variable_ranges.value_min or w.variable_value > a.variable_ranges.value_max
-			# 				a.activate
-			# 			end
-			# 		end
-			# 	end
- 		# 	end
 		end	
 
 		@texto =params 

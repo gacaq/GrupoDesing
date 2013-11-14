@@ -17,5 +17,9 @@ class Work < ActiveRecord::Base
   def self.find_with_id_and_variable(device_id, variable_id)
     where("device_id=? AND variable_id=?", device_id, variable_id) 
   end
+
+  def random1
+    format.json { render :text => Work.random1 }
+  end
   
 end

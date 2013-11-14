@@ -25,20 +25,8 @@ class Alarm < ActiveRecord::Base
   end
 
 
-  def variable_range()
+  def variable_range_alarm()
     VariableRange.includes(:variable).find_all_by_owner_id(self.id)
-  end
-
-  def variable_ranges_alarms(variable_ranges, alarm_id)
-    variable_ranges.each do |vr|
-      if vr.owner_id == alarm_id
-       VariableRange.includes(:variable).find(vr.id)
-      end
-    end
-  end
-
-  def prueba
-    VariableRange.find_all_by_owner_id(self.id)
   end
 
 end

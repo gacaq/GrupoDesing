@@ -8,7 +8,7 @@ class Device < ActiveRecord::Base
   default_scope order: 'devices.created_at ASC'
 
   def configuration(configuration_set_id)
-    ConfigurationSet.includes(:alarms).find(configuration_set_id)
+    ConfigurationSet.includes(:alarms, :recipe).find(configuration_set_id)
   end
  
 end

@@ -61,7 +61,8 @@ class ConfigurationSetsController < ApplicationController
         format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully created.' }
         format.json { render json: @configuration_set, status: :created, location: @configuration_set }
       else
-        format.html { render action: "new" }
+        @enterprises = Enterprise.includes(:devices).all
+        format.html { render "su_index" }
         format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
       end
     end
@@ -77,7 +78,8 @@ class ConfigurationSetsController < ApplicationController
         format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        @enterprises = Enterprise.includes(:devices).all
+        format.html { render "su_index" }
         format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
       end
     end

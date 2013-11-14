@@ -7,9 +7,9 @@
 	<%= f.label :variable_id %>
 	<%= f.select :variable_id, Variable.all.map { |v| [v.name.titleize, v.id] } %>
 	<%= f.label :value_max %>
-	<%= f.text_field :value_max, class: 'numero' %>
+	<%= f.text_field :value_max, class: "numero" %>
 	<%= f.label :value_min %>
-	<%= f.text_field :value_min, class: 'numero' %>
+	<%= f.text_field :value_min, class: "numero" %>
 	<%= f.hidden_field :_destroy %>
 	<%= link_to "Borrar variable", '#', class: "remove_fields" %>
 </fieldset>
