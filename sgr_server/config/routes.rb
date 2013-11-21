@@ -1,9 +1,6 @@
 SgrServer::Application.routes.draw do
   
   resources :configuration_sets
-
-  
-
   root :to => 'informations#works'
   
   devise_for :users

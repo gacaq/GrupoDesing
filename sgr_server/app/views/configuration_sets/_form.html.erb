@@ -14,8 +14,8 @@
 		<%= f.label :name, "Nombre" %><br />
 		<%= f.text_field :name %>
     	<%= hidden_field_tag :device_id, device.id %> <!--Se pone device.id sin params porque en su_index no se esta mandando como parametros ya que no es un formulario -->
-		<%= f.submit "Guardar set" %>
-		<%= f.submit "Aplicar set", remote: true %>
+		<%= f.submit "Guardar" %>
+        <%= f.submit "Aplicar" %>
 
 		
 		<fieldset>

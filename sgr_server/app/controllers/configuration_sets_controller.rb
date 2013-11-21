@@ -41,31 +41,41 @@ class ConfigurationSetsController < ApplicationController
   # POST /configuration_sets
   # POST /configuration_sets.json
   def create
-    @configuration_set = ConfigurationSet.new(params[:configuration_set])
-
     respond_to do |format|
-      if @configuration_set.save
-            
-        device = Device.find(params[:device_id])
-        device.configuration_set_id = @configuration_set.id
-        configuration = ConfigurationSet.includes(:alarms).find(@configuration_set.id)
-        configuration.alarms do |a|
-          a.active = false 
-          #raise a.active.to_yaml
-          a.save
-        end 
+      if (params[:commit] == "Guardar")
+        @configuration_set = ConfigurationSet.new(params[:configuration_set])
+        if @configuration_set.save
 
-        device.save
+          device = Device.find(params[:device_id])
+          device.configuration_set_id = @configuration_set.id
+          configuration = ConfigurationSet.includes(:alarms).find(@configuration_set.id)
+          configuration.alarms do |a|
+            a.active = false
+            #raise a.active.to_yaml
+            a.save
+          end
+          device.save
 
-        
-        format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully created.' }
-        format.json { render json: @configuration_set, status: :created, location: @configuration_set }
+          format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully created.' }
+          format.json { render json: @configuration_set, status: :created, location: @configuration_set }
+        else
+          @enterprises = Enterprise.includes(:devices).all
+          format.html { render "su_index" }
+          format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
+        end
       else
-        @enterprises = Enterprise.includes(:devices).all
-        format.html { render "su_index" }
-        format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
+        if (ConfigurationSet.find_by_name(params[:configuration_set][:name]))
+          device = Device.find(params[:device_id])
+          device.AplicarSet(params[:configuration_set][:name])
+          format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to configuration_sets_path, notice: 'No existe ningun Set de Configracion con el nombre ingresado' }
+          format.json { head :no_content }
+        end
       end
     end
+
   end
 
   # PUT /configuration_sets/1
@@ -74,13 +84,25 @@ class ConfigurationSetsController < ApplicationController
     @configuration_set = ConfigurationSet.find(params[:id])
 
     respond_to do |format|
-      if @configuration_set.update_attributes(params[:configuration_set])
-        format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully updated.' }
-        format.json { head :no_content }
+      if (params[:commit] == "Guardar")
+        if @configuration_set.update_attributes(params[:configuration_set])
+          format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully updated.' }
+          format.json { head :no_content }
+        else
+          @enterprises = Enterprise.includes(:devices).all
+          format.html { render "su_index" }
+          format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
+        end
       else
-        @enterprises = Enterprise.includes(:devices).all
-        format.html { render "su_index" }
-        format.json { render json: @configuration_set.errors, status: :unprocessable_entity }
+        if (ConfigurationSet.find_by_name(params[:configuration_set][:name]))
+          device = Device.find(params[:device_id])
+          device.AplicarSet(params[:configuration_set][:name])
+          format.html { redirect_to configuration_sets_path, notice: 'Configuration set was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to configuration_sets_path, notice: 'No existe ningun Set de Configracion con el nombre ingresado' }
+          format.json { head :no_content }
+        end
       end
     end
   end

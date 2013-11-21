@@ -15,8 +15,9 @@
       </tr>
     </thead>
     <tbody>
-    <% if device.configuration_set_id > 0 %>
+    <% if device.configuration_set && device.configuration_set_id > 0 %>
         <% configuration = device.configuration(device.configuration_set_id) %>
+        <% if configuration && configuration.recipe %>
         <% variable_ranges = configuration.recipe.variable_range_recipe %>
 
             <% variable_ranges.each do |vr| %>
@@ -28,6 +29,7 @@
                 <td><%= vr.value_max %></td>
               </tr>
             <% end %>
+        <% end %>
                          
     <% end %>
      
@@ -48,7 +50,7 @@
       </tr>
     </thead>
     <tbody>
-    <% if device.configuration_set_id > 0 %>
+    <% if device.configuration_set_id && device.configuration_set_id > 0 %>
         <% configuration = device.configuration(device.configuration_set_id) %>
         <% configuration.alarms.each do |a| %>
 

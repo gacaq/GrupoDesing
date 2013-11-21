@@ -2,7 +2,7 @@ class Alarm < ActiveRecord::Base
   attr_accessible :alarm_type, :description, :active, :variable_ranges_attributes, :configuration_set_id
   #belongs_to :recipe
   #belongs_to :device
-  has_many :variable_ranges, as: :owner
+  has_many :variable_ranges, as: :owner, :dependent => :delete_all
   belongs_to :configuration_set
 
   accepts_nested_attributes_for :variable_ranges, :allow_destroy => true
